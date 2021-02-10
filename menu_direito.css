@@ -1,0 +1,1381 @@
+/* Código modularizado da parte direita do style - Spirit Fanfiction
+ * Autor: Pedro Lázaro
+ * 
+ * Se você obteve esse código sem a expressa autorização do autor, pode
+ * manuseá-lo à vontade. Conhecimento parado não serve de nada, não é,
+ * mesmo? Ficarei feliz se meu código servir para inspirar outros styles.
+ * 
+ *  */
+
+/* Estilos do Menu Direito do Site                                         */
+
+.boxMenuDireito {
+	position:relative;
+	background-color: transparent;
+}
+.boxMenuDireito:hover{
+}
+/*========== MENU DIREITO =============================================*/
+/*.boxMenuDireito .tituloMenuDireito{
+        color: white;
+        font-size:10px;
+        font-family: Calibri, Candara, serif!important;
+        text-align: center;
+        text-transform: uppercase;
+        padding-top:10px;
+        padding-bottom:10px;
+        border: 1px solid green;
+}
+
+.boxMenuDireito .tituloMenuDireito:hover{
+		color: gray;
+}*/
+
+/*========== BOX H4 ===================================================*/
+
+
+/*---------- GERAL ----------------------------------------------------*/
+
+.boxMenuDireito h4.tituloMenuDireito{
+	
+	margin-bottom:10px;
+	height:45px;
+	padding:15px;
+	position:relative;
+	font-family:var(--font_title)!important;
+	font-size:12px;
+	font-weight:600;
+	color:var(--patronus_core);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+/*---------- BOTOES BUSCAR --------------------------------------------*/
+
+aside.sidebar .boxMenuDireito.hidden-xs.hidden-sm .textoMenuDireito .right .btn{
+	position:relative;
+	top:-3px;
+	text-transform:lowercase;
+	font-variant:small-caps;
+	font-size:12px!important;
+	font-weight:300;
+	border-color: var(--patronus_core)!important;
+}
+
+aside.sidebar .boxMenuDireito.hidden-xs.hidden-sm .textoMenuDireito .clearfix{
+	display:flex;
+		justify-content:space-between;
+}
+aside.sidebar .boxMenuDireito.hidden-xs.hidden-sm .textoMenuDireito .carregandoAmarelo{
+	display:block; /*O codigo acima modifica o carregando, logo, preciso explicitamente reverter a modificação*/
+}
+
+/*========== 1° OBJETO QUANDO NAO HA AMIGOS ===========================*/
+/*==========  OBJETO ============================================*/
+/*sala precisa*/
+
+
+.boxMenuDireito:nth-child(1) h4.tituloMenuDireito{
+	height: 150px;
+	display:flex;flex-direction:column;justify-content:center;
+	transition: height 2s ease 2s;
+}
+.boxMenuDireito:nth-child(1) h4.tituloMenuDireito:before{ /*PAREDE*/
+	display:block;content:"";position:absolute;
+	top:0;left:0;
+	height:100%;width:100%;
+	background:url(https://dl.dropboxusercontent.com/s/fipmyze3mdgqzs2/onlywall.png)no-repeat;
+	background-size:contain;background-position:center center;
+	filter:invert(.3) contrast(3) drop-shadow(0 0 2px black) drop-shadow(0 0 10px var(--patronus_out));
+	-webkit-clip-path: circle(0% at 50% 50%);
+	clip-path: circle(0% at 50% 50%);
+	z-index:-1;
+	transition: all 2s ease;
+}
+.boxMenuDireito:nth-child(1) h4.tituloMenuDireito:after{/*PORTA*/
+	display:block;content:"";position:absolute;
+	top:0;left:0;
+	height:100%;width:100%;
+	background:url(https://dl.dropboxusercontent.com/s/zs8iua9xaqbmiiw/onlyDoor.png)no-repeat;
+	background-size:contain;background-position:center center;
+	filter:saturate(40);
+	opacity:0;
+	z-index:-1;
+	transition: opacity 1s ease;
+}
+.boxMenuDireito:nth-child(1):hover h4.tituloMenuDireito:before{/*PAREDE*/
+	-webkit-clip-path: circle(80% at 50% 50%);
+	clip-path: circle(80% at 50% 50%);
+	transition: all 4s ease;
+}
+.boxMenuDireito:nth-child(1):hover h4.tituloMenuDireito{
+	color:black;
+	transition: color 1s ease;
+}
+.boxMenuDireito:nth-child(1) h4.tituloMenuDireito:hover:after{/*porta*/
+	opacity:1;
+	transition: opacity 3s ease-out 1s;
+}
+
+
+/*========== PRIMEIRO OBJETO (hidden) =================================*/
+
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito{
+	height:auto;
+	display:flex;flex-direction:column;justify-content:center;
+	transition: all .4s ease;
+}
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover h4.tituloMenuDireito{
+	color:white;
+	text-shadow: 0 0 2px black, 0 0 3px black, 0 0 4px black, 0 0 5px black;
+	height: auto;
+	transition: all .4s ease;
+}
+/*---------- LADOS SUPERIORES DO TRIANGULO ----------------------------*/
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .right{
+	position:relative;
+	float:none!important;
+}
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .left:before{ /*lado esquerdo*/
+	
+	display:block;
+	position: absolute;
+	content:"";
+	top:8px;
+	left: 29.5%;/*36.5%;*/
+	height:2px;
+	width: 0px;
+	border-top: 3px solid var(--patronus_core);
+	z-index:-1;
+	transform: rotate(-360deg);
+	
+	
+	transition: all .5s ease;
+}
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover .textoMenuDireito .left:before{
+	width:82px;
+	transform: rotate(-60deg);
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	transition: all .5s ease;
+	
+}
+
+/*
+aside.sidebar:hover .boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .left:before{
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	border-color: var(--patronus_core);
+}
+*/
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .left:after{ /*lado direito*/
+	display:block;
+	position: absolute;
+	content:"";
+	top:8px;
+	left: 42.5%;/*36.5%;*/
+	height:2px;
+	width: 0px;
+	border-top: 3px solid var(--patronus_core);
+	z-index:-1;
+	transform: rotate(360deg);
+	
+	transition: all .5s;
+}
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover .textoMenuDireito .left:after{
+	width:82px;
+	transform: rotate(60deg);
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	transition: all .5s ease;
+}
+/*
+aside.sidebar:hover .boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .left:after{
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	border-color: var(--patronus_core);
+}
+*/
+
+/*---------- BASE DO TRIANGULO ----------------------------------------*/
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .right:before{
+	display:block;
+	position: absolute;
+	content:"";
+	top:-15px;
+	left: -114px;/*36.5%;*/
+	height:2px;
+	width: 0px;
+	transform:rotate(360deg);
+	border-top: 3px solid var(--patronus_core);
+	transition: all .5s!important;
+}
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover .textoMenuDireito .right:before{
+	width:83px;
+	transform:rotate(180deg);
+	box-shadow: 0 -2px 10px 0px var(--patronus_out), inset 0 10px 10px 0px var(--patronus_in);
+	transition: width .5s ease, transform .5s ease;
+}
+/*
+aside.sidebar:hover .boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) .textoMenuDireito .right:before{
+	box-shadow: 0 -2px 10px 0px var(--patronus_out), inset 0 10px 10px 0px var(--patronus_in);
+	border-color: var(--patronus_core);
+	transition: all .5s ease!important;
+}
+*/
+
+/*---------- HASTE CENTRAL --------------------------------------------*/
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito:before{ 
+	display:block;position: absolute;content:"";
+	top:-55%;left: 49%;
+	height:0px;	width: 4px;
+	transform: rotate(200deg);
+	border-left: 3px solid var(--patronus_core);
+	transition: all .5s ease;
+	z-index:-1;
+	
+	/*Propriedades definidas para sobrescrever o objeto do caso sem amigos*/
+	background:transparent;
+	filter:none;
+	-webkit-clip-path: none;
+	clip-path: none;
+}
+
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover h4.tituloMenuDireito:before{
+	height:70px;
+	transform:rotate(0deg);
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	transition: all .5s ease;
+	
+	/*Propriedades definidas para sobrescrever o objeto do caso sem amigos*/
+	-webkit-clip-path: none;
+	clip-path: none;
+}
+/*
+aside.sidebar:hover .boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito:before{
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	border-color: var(--patronus_core);
+	transition: all 1s ease;
+}
+*/
+/*---------- CIRCULO --------------------------------------------------*/
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito:after{ /*circulo*/
+	display:block;position:absolute;content:"";
+	top:50%;left:50%;bottom:50%;right:50%;
+	height:auto;width:auto;
+	transform: rotateY(0deg);
+	border: 3px solid transparent;	border-radius: 100px;
+	z-index:-1;
+	transition: all .4s ease, transform 3s ease!important;
+	
+	/*Propriedades definidas para sobrescrever o objeto do caso sem amigos*/
+	background:transparent;
+	filter:none;
+	opacity:1;
+}
+
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1):hover h4.tituloMenuDireito:after{/*revelacao*/
+	top:0%;	left:42.2%;	bottom:0%;	right:42.8%;
+	border-color: var(--patronus_core);
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	transition: all .4s;
+}
+/*
+aside.sidebar:hover .boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito:after{
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	border-color: var(--patronus_core)!important;
+	transition: all 1s ease;
+}
+*/
+.boxMenuDireito.hidden-xs.hidden-sm:nth-child(1) h4.tituloMenuDireito:hover:after{/*animacao*/
+	transform: rotateY(720deg);
+	transition: transform 4s ease;
+	
+	opacity:1; /*anulacao do caso sem amigos*/
+}
+
+
+/*========== ASIDE PSEUDO =============================================*/
+
+
+/*SERVE PARA AMPLIAR O HOVER DOS ELEMENTOS DO MENU DIREITO E EVITAR QUE FIQUE ALTERNANDO ENTRE HOVER E NÃO HOVER DURANTE UMA PASSEADA PELA PAGINA*/
+aside.sidebar{position:relative;}
+aside.sidebar:before{
+	position: absolute; display:block;content:"";
+	top:-30px;bottom:-20px;right:-60px;left:-30px;
+	height:auto;width:auto;
+/*
+	outline:white solid 1px;
+*/
+}
+@media only screen and (max-width: 767px) {
+	aside.sidebar:before{
+		display:none;
+	}
+}
+
+/*========== SEGUNDO OBJETO ===========================================*/
+/*vira-tempo*/ /*lembrar de trocar o 3 pelo 2*/
+
+
+.boxMenuDireito:nth-child(2){
+	position:relative;
+}
+.boxMenuDireito:nth-child(2) h4.tituloMenuDireito{
+	position:relative;
+	height: 104px;/*esses 4 pixels a mais é para centralizar melhor; ao meu olhar ficou mais alinhado com os pinos*/
+	display:flex;flex-direction:column;justify-content:center;
+	transition: all .4s ease;
+}
+.boxMenuDireito:nth-child(2):hover h4.tituloMenuDireito{
+	color:white;
+	text-shadow: 0 0 2px black, 0 0 3px black, 0 0 4px black, 0 0 5px black;
+	transition: all .4s ease;
+}
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(2) h4.tituloMenuDireito{
+		color:white;
+		text-shadow: 0 0 2px black, 0 0 3px black, 0 0 4px black, 0 0 5px black;
+	}
+}
+
+
+/*ARO DOS PINOS -------------------------------------------------------*/
+.boxMenuDireito:nth-child(2):before{
+	display:block;position:absolute; content:"";
+	top:0;left:calc(50% - 50px);
+	height:100px;width: 100px;
+	background: url(https://dl.dropboxusercontent.com/s/uz5l6xmw1ihogsf/timething.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/12j2p9mc5ddsaqu/timethingLEFT.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat;
+	background-size:10% 10%, 10% 10%, 6% 8%, 6% 8%;background-position:right, left, 13% 50%, 87% 50%;
+	border: 1px solid transparent; border-radius: 100px;
+	filter:invert(1);
+	transform:scale(0);
+	z-index:-1;
+	transition: all .4s ease;
+}
+.boxMenuDireito:nth-child(2):hover:before{
+	transform: scale(1.3);
+	transition: transform .4s ease;
+}
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(2):before{
+		transform: scale(1.3);
+	}
+}
+
+
+/*ARO EXTERNO ---------------------------------------------------------*/
+
+.boxMenuDireito:nth-child(2):after{
+	display:block;position:absolute;content:"";
+	top:0; left: calc(50% - 50px); /*o posicionamento dos circulos é igual, o que muda é o scale*/
+	height:100px;width: 100px;
+	z-index:-1;
+	border: 4px solid var(--patronus_core); border-radius: 100px;
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px -5px var(--patronus_in);
+	transform: scale(0);
+	transition: all .4 ease;
+}
+.boxMenuDireito:nth-child(2):hover:after{/*revelacao*/
+	transform: scale(1.05);
+	transition: transform .4s ease;
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(2):after{
+		transform: scale(1.05);
+	}
+}
+
+
+/*ARO INTERMEDIARIO ---------------------------------------------------*/
+
+.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:before{
+	display:block;position:absolute;content:"";
+	top:0%;left:calc(50% - 50px);
+	height:100px;width:100px;
+	border-radius: 100px; border: 4px solid black;
+	background: url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat,/*cima maior*/
+				url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat,/*baixo maior*/
+				url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat,/*cima menor*/
+				url(https://dl.dropboxusercontent.com/s/5n62outlsa1fsoq/brebototimeturne.png) no-repeat;/*baixo menor*/
+	background-size: 10% 5%, 10% 5%, 5% 7%, 5% 7%; background-position:49.5% 7%, 50% 93%, 50% 1%, 50% 99%;
+	z-index:-1;
+	box-shadow: 0 0 10px 2px #E16F00, inset 0 0 10px -5px #3F3F3F; /*aqui estao as cores invertidas do patronus_out e patronus_in, por causa do filter invert*/
+	filter:invert(1);
+	transform: scale(0);
+	transition: all .4s ease;
+}
+.boxMenuDireito:nth-child(2):hover h4.tituloMenuDireito:before{/*revelacao - hover no box corrente inteiro*/
+	transform: scale(.85);
+	transition: transform .4s ease!important;
+}
+.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:hover:before{/*animacao - hover no cabeçalho h4*/
+	animation: 	threetimes_int 3.9s ease 1 forwards,
+				gira_int .2s linear 4.0s 20 forwards,
+				gira_int 1s ease 8s 1 forwards;
+}
+
+@keyframes gira_int{
+	from{transform: scale(.85) rotateX(0turn)}/*precisei adicionar essa etapa, que normalmente seria dispensavel por causa da presenca do scale*/
+	to{transform: scale(.85) rotateX(1turn);}
+}
+@keyframes threetimes_int{
+	from{	transform:scale(.85) rotateX(0deg);}
+	33%	{	transform:scale(.85) rotateX(-180deg);}
+	66%	{	transform:scale(.85) rotateX(-360deg);}
+	to	{	transform:scale(.85) rotateX(-540deg);}
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:before{
+		transform: scale(.85);
+	}
+	.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:hover:before{
+		animation-play-state:paused, paused, paused;
+	}
+}
+
+/*AMPULHETA -----------------------------------------------------------*/
+
+.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:after{
+	display:block;position:absolute;content:"";
+	top:0;left:calc(50% - 50px);
+	height:100px;width:100px;
+	border-radius: 100px;
+	background:	url(https://dl.dropboxusercontent.com/s/rgq5tjkgxcg05jb/timeturner.png) no-repeat;
+	background-size:contain;
+	box-shadow: 0 -2px 10px 2px var(--patronus_out), inset 0 5px 10px -5px var(--patronus_in);
+	transform: scale(0);
+	z-index:-2;
+	transition: all .4s ease;
+}
+.boxMenuDireito:nth-child(2):hover h4.tituloMenuDireito:after{/*revelacao - hover no corpo de todo o boxMenuDireito corrente*/
+	transform: scale(.61);
+	transition: transform .4s ease!important;
+}
+.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:hover:after{/*animacao - hover no cabecalho h4*/
+	animation:	threetimes_amp 3.9s ease 1 forwards,
+				gira_amp .2s linear 4.0s 20 forwards,
+				gira_amp 1s ease 8s 1 forwards,
+				rotacao_amp .5s ease 9.1s 1 forwards;
+}
+
+@keyframes gira_amp{
+	from{transform: scale(.61) rotateX(0turn)}/*precisei adicionar essa etapa, que normalmente seria dispensavel por causa da presenca do scale*/
+	to{transform: scale(.61) rotateX(1turn);}
+}
+@keyframes rotacao_amp{
+	from{transform: scale(.61) rotateY(0turn);}
+	to{transform: scale(.61) rotateY(1turn);}
+}
+@keyframes threetimes_amp{
+	from{	transform:scale(.61) rotateX(0deg);}
+	33%	{	transform:scale(.61) rotateX(-180deg);}
+	66%	{	transform:scale(.61) rotateX(-360deg);}
+	to	{	transform:scale(.61) rotateX(-540deg);}
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:after{
+		transform: scale(.61);
+	}
+	.boxMenuDireito:nth-child(2) h4.tituloMenuDireito:hover:after{/*animacao*/
+		animation-play-state:paused, paused, paused, paused;
+	}
+}
+
+
+/*========== TERCEIRO OBJETO ==========================================*/
+/*ford anglia*/ /*coloquei 8 no lugar de 3*/
+
+.boxMenuDireito:nth-child(3) h4.tituloMenuDireito{/*texto*/
+	display:flex;align-items:center;justify-content:center;
+	position:relative;
+	color:white;
+	height:100px;	
+	background: url(https://dl.dropboxusercontent.com/s/0aya25dh82zrumy/etiqueta.png) no-repeat;
+	background-size:.1% .1%; background-position:center center;
+	transition: height 1s ease;
+}
+.boxMenuDireito:nth-child(3):before{ /*ford anglia*/
+	position:absolute;display:block;content:"";
+	top:0;left:0;
+	width:100%;height:100px;
+	filter:drop-shadow(0 0 0px transparent) drop-shadow(0 0 0px transparent);
+	transform: translate(-1500px, -600px) rotate(0deg);
+	opacity:0;
+	background:url(https://dl.dropboxusercontent.com/s/hj08jlrmwjqauyg/anglia1.png)no-repeat;
+	background-position:center center; background-size:contain;
+	transition: all 1s ease;
+}
+.boxMenuDireito:nth-child(3):hover:before{
+	filter:drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+	opacity:1;
+	animation: anglia 3s linear 1 forwards;
+	transition:all 1s ease;
+}
+.boxMenuDireito:nth-child(3):hover h4.tituloMenuDireito{
+	color:black;
+	background-size: 60% 20%;
+	transition: color 1s ease 2.5s, background-size .5s ease 2.8s;
+}
+@keyframes anglia{
+	from{	transform: translate(-1500px, -600px) rotate(0deg);}
+	10%{	transform: translate(-1350px, -540px) rotate(-10deg)}
+	20%{	transform: translate(-1200px, -480px) rotate(0deg)}
+	30%{	transform: translate(-1050px,-420px) rotate(10deg)}
+	40%{	transform: translate(-900px,-360px) rotate(0deg)}
+	50%{	transform: translate(-750px,-300px) rotate(-10deg)}
+	60%{	transform: translate(-600px,-240px) rotate(0deg)}
+	70%{	transform: translate(-450px,-180px) rotate(10deg)}
+	80%{	transform: translate(-300px,-120px) rotate(0deg)}
+	90%{	transform: translate(-150px,-60px) rotate(-10deg)}
+	100%{	transform: translate(0,0) rotate(0deg);}
+}
+
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(3) h4.tituloMenuDireito{/*texto*/
+		color:black;
+		background-size: 60% 20%;
+	}
+	.boxMenuDireito:nth-child(3):before{ /*ford anglia*/
+		filter:drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+		opacity:1;
+		animation: anglia 1s linear -1s 1 forwards;/*o caro já se encontra parado*/
+	}
+}
+
+/*========= QUARTO OBJETO =============================================*/
+/*patrono*/
+
+.boxMenuDireito:nth-child(4) h4.tituloMenuDireito{
+/*
+	overflow:hidden;
+*/
+	color: white;
+	height:75px;
+	display:flex; flex-direction:column; justify-content:center;
+	position:relative;
+	transition: height 1s ease;
+}
+.boxMenuDireito:nth-child(4) h4.tituloMenuDireito:before{ /*PATRONO DEER*/
+	display:block;position:absolute;content:"";
+	bottom:0;left:-1400px;
+	height:100px;width:100px;
+	opacity: 0; /*ele começa invisivel*/
+/*
+	background:url(https://dl.dropboxusercontent.com/s/pcg27elk5v26pgf/deerOficcial_low.png)no-repeat;
+*/
+	background:url(https://dl.dropboxusercontent.com/s/aap32494kzjew2e/deerLowlow.png)no-repeat;
+	background-size: 200px 100px;background-position: 100% 0; 
+	filter:drop-shadow(0 0 2px black) drop-shadow(0 0 10px var(--patronus_out));
+}
+.boxMenuDireito:nth-child(4):hover h4.tituloMenuDireito:before{
+	opacity: 1;
+	bottom:-10px;transition:bottom .5s ease 2s, opacity .5s ease;;
+	animation: deerWalkLeft .50s linear 4, progress3left 2s linear 1, transfiguration .5s ease 2s 1 forwards;
+}
+.boxMenuDireito:nth-child(4) h4.tituloMenuDireito:after{/*DOE*/
+	display:block;content:"";position:absolute;
+	bottom:0;left:0;
+	height:100px;width:100px;
+	background:url(https://dl.dropboxusercontent.com/s/ue500q1qu5oo3hd/doe.png)no-repeat;
+	transform: scale(.01) rotate(1200deg);
+	border-radius:100%;
+	background-size: contain;
+	transform-origin: right top;
+	filter:drop-shadow(0 0 2px black) drop-shadow(0 0 10px var(--patronus_out));
+}
+.boxMenuDireito:nth-child(4):hover h4.tituloMenuDireito:after{
+	bottom:-50px;left:-50px;transition: all .5s ease;
+	animation: appartion .2s linear 1, appartion2 .2s ease-in-out 1 .2s, engorgio2 .5s ease .4s 1 forwards;
+}
+@keyframes appartion{
+	from{transform: scale(.01) rotate(1200deg);}
+	20%{transform: scale(.1) rotate(600deg);}
+	to{transform: scale(.1) rotate(500deg);}
+}
+@keyframes appartion2{
+	from{transform: scale(.1) rotate(500deg);}
+	to{transform: scale(.6) rotate(0deg);}
+}
+@keyframes engorgio2{
+	from{transform: scale(.6) rotate(0deg);}
+	to{transform: scale(.4) rotate(0deg);}
+}
+
+@keyframes transfiguration{
+	from{transform: translate(1600px, 0px) rotate(20deg);}
+	to{transform: translate(1620px, 0px)  scale(.5);}
+}
+@keyframes progress3left{
+	0%{transform: translate(0,0) rotate(0deg);}
+	12.5%{transform: translate(200px,-30px) rotate(0deg);}
+	25%{transform: translate(400px,0) rotate(20deg);}
+	37.5%{transform: translate(600px,-30px) rotate(0deg);}
+	50%{transform: translate(800px,0) rotate(20deg);}
+	62.5%{transform: translate(1000px,-30px) rotate(0deg);}
+	75%{transform: translate(1200px,0) rotate(20deg);}
+	87.5%{transform: translate(1400px,-30px) rotate(0deg);}
+	100%{transform: translate(1600px, 0px) rotate(20deg);}
+}
+
+@keyframes deerWalkLeft{
+	0%, 30%{		background-position: 0% 0; opacity:0;}
+	0.001%, 29.999%{background-position: 0% 0; opacity:1;}
+	
+	30.001%, 100%{background-position: 110% 0; opacity:0;}
+	50.002%, 99.999%{background-position: 110% 0; opacity:1;}
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(4) h4.tituloMenuDireito:after{/*DOE*/
+		bottom:-50px;left:-50px;
+		transform: scale(.4);
+	}
+	.boxMenuDireito:nth-child(4):hover h4.tituloMenuDireito:after{
+		animation:none;
+	}
+	.boxMenuDireito:nth-child(4) h4.tituloMenuDireito:before{ /*PATRONO DEER*/
+		opacity: 1;
+		bottom:-10px;
+		left:calc(50% + 80px); /*reposicionamento para ficar simetrico no mobile*/
+		transform: scale(.5);
+		animation:none;
+	}
+	.boxMenuDireito:nth-child(4):hover h4.tituloMenuDireito:before{
+		animation:none;
+	}
+}
+/*========== QUINTO OBJETO ============================================*/
+/*Mapa do maroto*/
+
+.boxMenuDireito:nth-child(5){
+	overflow:hidden;
+}
+.boxMenuDireito:nth-child(5) h4.tituloMenuDireito{
+	color:black;
+	background: url(https://dl.dropboxusercontent.com/s/lh7xgqx9wira0x7/marauderback.png)no-repeat;
+	background-size:.1% .1%; background-position: center center;
+	filter:invert(1) drop-shadow(0 0 0 transparent) drop-shadow(0 0 0 transparent);
+	height: 200px;
+	display:flex; flex-direction:column;justify-content:center;
+	position:relative;
+	overflow:hidden;
+	z-index:2!important;
+	background-origin:content-box; /*faz o background ser afetado pelo padding*/
+	transition: all 1s ease, filter 1s ease;
+	
+}
+
+.boxMenuDireito:nth-child(5):hover h4.tituloMenuDireito{ /*revelacao*/
+	background-size: 90% 75%;background-position:90% 0%;
+	filter: invert(0) drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+	animation: marauder 9s linear 1 forwards;
+	transition: background-size 1s ease, background-position 1s ease, filter 1s ease;
+} 
+
+@keyframes marauder{
+	25%{
+		padding-top:30px; padding-bottom:0px;
+		padding-right:30px; padding-left:0px;
+	}
+	75%{
+		padding-bottom:30px;padding-top:0px;
+		padding-left:30px; padding-right:0px;
+	}
+	to{padding:15px;}
+}
+
+.boxMenuDireito:nth-child(5):before{/*PÉ DIREITO*/
+	display:block;position:absolute;content:"";
+	top:180px;left:-15%;
+	width:30px;height:30px;
+	background:url(https://dl.dropboxusercontent.com/s/kzh7dowba03nhu8/rightFoot.png)no-repeat;
+	background-size:contain; background-position: center;	
+}
+.boxMenuDireito:nth-child(5):hover:before{
+	animation: walk-right 20s ease-out 1 forwards;
+}
+
+.boxMenuDireito:nth-child(5):after{ /*PE ESQUERDO*/
+	display:block;position:absolute;content:"";
+	top:180px;left:-15%;
+	width:30px;height:30px;
+	background:url(https://dl.dropboxusercontent.com/s/g2ap198ckxigmna/leftFoot.png)no-repeat;
+	background-size:contain; background-position:center;
+}
+.boxMenuDireito:nth-child(5):hover:after{
+	animation: walk-left 20s ease-out 1 .5s forwards;
+}
+
+@keyframes walk-right{
+	/*etapas:
+	 * transicao ofuscada (curto)
+	 * revelacao (curto)
+	 * permanencia (longo)
+	 * ofuscamento (curto)*/
+	0.0%,100%{top:180px; left:-15%;	opacity:0;	transform:rotate(0deg);}/*ofuscamento*/
+	/*Passo 1*/
+	0.5%, 5.0%{top:120px; left: 0%;	opacity:0;	transform:rotate(45deg);}/*transicao, ofuscamento*/
+	2.0%, 4.0%{top:120px; left: 0%;	opacity:1;	transform:rotate(45deg);}/*revelacao, permanencia*/
+	/*Passo 2*/
+	5.5%, 10.0%{top:128px; left:10%;	opacity:0;	transform:rotate(60deg);}/*transicao, ofuscamento*/
+	7.0%, 9.0%{top:128px; left:10%;		opacity:1;	transform:rotate(60deg);}/*revelacao, permanencia*/
+	/*Passo 3*/
+	10.5%, 15.0%{top:140px; left:20%;	opacity:0;	transform:rotate(45deg);}/*transicao, ofuscamento*/
+	12.0%, 14.0%{top:140px; left:20%;	opacity:1;	transform:rotate(45deg);}/*revelacao, permanencia*/
+	/*Passo 4*/
+	15.5%, 20.0%{top:140px; left:35%;	opacity:0;	transform:rotate(30deg);}/*transicao, ofuscamento*/
+	17.0%, 19.0%{top:140px; left:35%;	opacity:1;	transform:rotate(30deg);}/*revelacao, permanencia*/
+	/*Passo 5*/
+	20.5%, 25.0%{top:116px; left:50%;	opacity:0;	transform:rotate(-10deg);}/*transicao, ofuscamento*/
+	22.0%, 24.0%{top:116px; left:50%;	opacity:1;	transform:rotate(-10deg);}/*revelacao, permanencia*/
+	/*Passo 6*/
+	25.5%, 30.0%{top:80px; left:55%;	opacity:0;	transform:rotate(-40deg);}/*transicao, ofuscamento*/
+	27.0%, 29.0%{top:80px; left:55%;	opacity:1;	transform:rotate(-40deg);}/*revelacao, permanencia*/
+	/*Passo 7*/
+	30.5%, 35.0%{top:50px; left:65%;	opacity:0;	transform:rotate(0deg);}/*transicao, ofuscamento*/
+	32.0%, 34.0%{top:50px; left:65%;	opacity:1;	transform:rotate(0deg);}/*revelacao, permanencia*/
+	/*Passo 8*/
+	35.5%, 40.0%{top:36px; left:80%;	opacity:0;	transform:rotate(45deg);}/*transicao, ofuscamento*/
+	37.0%, 39.0%{top:36px; left:80%;	opacity:1;	transform:rotate(45deg);}/*revelacao, permanencia*/
+	/*Passo 9*/
+	40.5%, 45.0%{top:36px; left:95%;	opacity:0;	transform:rotate(45deg);}/*transicao, ofuscamento*/
+	42.0%, 44.0%{top:36px; left:95%;	opacity:1;	transform:rotate(45deg);}/*revelacao, permanencia*/
+	/*Passo 10*/
+	45.5%, 50.0%{top:28px; left:110%;	opacity:0;	transform:rotate(20deg);}/*transicao, ofuscamento*/
+	47.0%, 49.0%{top:28px; left:110%;	opacity:1;	transform:rotate(20deg);}/*revelacao, permanencia*/
+}
+
+@keyframes walk-left{
+	/*etapas:
+	 * transicao ofuscada (curto)
+	 * revelacao (curto)
+	 * permanencia (longo)
+	 * ofuscamento (curto)*/
+	0.0%, 100%{top:180px; left:-15%;	opacity:0;	transform:rotate(0deg);}/*ofuscamento*/
+	/*Passo 1*/
+	0.5%, 5.0%{top:120px; left: 5%;	opacity:0;	transform:rotate(45deg);}/*transicao, ofuscamento*/
+	2.0%, 4.0%{top:120px; left: 5%;	opacity:1;	transform:rotate(45deg);}/*revelacao, permanencia*/
+	/*Passo 2*/
+	5.5%, 10.0%{top:128px; left:15%;	opacity:0;	transform:rotate(50deg);}/*transicao, ofuscamento*/
+	7.0%, 9.0%{top:128px; left:15%;	opacity:1;	transform:rotate(50deg);}/*revelacao, permanencia*/
+	/*Passo 3*/
+	10.5%, 15.0%{top:134px; left:25%;	opacity:0;	transform:rotate(20deg);}/*transicao, ofuscamento*/
+	12.0%, 14.0%{top:134px left:25%;	opacity:1;	transform:rotate(20deg);}/*revelacao, permanencia*/
+	/*Passo 4*/
+	15.5%, 20.0%{top:130px; left:40%;	opacity:0;	transform:rotate(-10deg);}/*transicao, ofuscamento*/
+	17.0%, 19.0%{top:130px; left:40%;	opacity:1;	transform:rotate(-10deg);}/*revelacao, permanencia*/
+	/*Passo 5*/
+	20.5%, 25.0%{top:100px; left:50%;	opacity:0;	transform:rotate(-20deg);}/*transicao, ofuscamento*/
+	22.0%, 24.0%{top:100px; left:50%;	opacity:1;	transform:rotate(-20deg);}/*revelacao, permanencia*/
+	/*Passo 6*/
+	25.5%, 30.0%{top:60px; left:55%;	opacity:0;	transform:rotate(-40deg);}/*transicao, ofuscamento*/
+	27.0%, 29.0%{top:60px; left:55%;	opacity:1;	transform:rotate(-40deg);}/*revelacao, permanencia*/
+	/*Passo 7*/
+	30.5%, 35.0%{top:40px; left:70%;	opacity:0;	transform:rotate(0deg);}/*transicao, ofuscamento*/
+	32.0%, 34.0%{top:40px; left:70%;	opacity:1;	transform:rotate(0deg);}/*revelacao, permanencia*/
+	/*Passo 8*/
+	35.5%, 40.0%{top:30px; left:85%;	opacity:0;	transform:rotate(20deg);}/*transicao, ofuscamento*/
+	37.0%, 39.0%{top:30px; left:85%;	opacity:1;	transform:rotate(20deg);}/*revelacao, permanencia*/
+	/*Passo 9*/
+	40.5%, 45.0%{top:30px; left:98%;	opacity:0;	transform:rotate(20deg);}/*transicao, ofuscamento*/
+	42.0%, 44.0%{top:30px; left:98%;	opacity:1;	transform:rotate(20deg);}/*revelacao, permanencia*/
+	/*Passo 10*/
+	45.5%, 50.0%{top:20px; left:120%;	opacity:0;	transform:rotate(20deg);}/*transicao, ofuscamento*/
+	47.0%, 49.0%{top:20px; left:120%;	opacity:1;	transform:rotate(20deg);}/*revelacao, permanencia*/
+}
+
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(5) h4.tituloMenuDireito{/*texto*/
+		background-size: 90% 75%;background-position:90% 0%;
+		filter:drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+	}
+	.boxMenuDireito:nth-child(5):hover h4.tituloMenuDireito{
+		animation: none;
+		filter:drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+	}
+	.boxMenuDireito:nth-child(5):before{/*PÉ DIREITO*/
+		display:none;
+	}
+	.boxMenuDireito:nth-child(5):after{ /*PE ESQUERDO*/
+		display:none;
+	}
+}
+
+
+/*========== SEXTO OBJETO =============================================*/
+/*penseira*/
+
+.boxMenuDireito:nth-child(6) h4.tituloMenuDireito{
+	height: 120px;
+	position:relative;
+	display:flex;flex-direction:column;justify-content:center;
+}
+.boxMenuDireito:nth-child(6):before{ /*TIGELA*/
+	position:absolute;content:"";display:block;
+	top:32px;left:0;
+	width:100%;height:100%;
+	background: url(https://dl.dropboxusercontent.com/s/gf7ra4an0xrv71e/pensievetry2.png)no-repeat;
+	background-size:70% auto; background-position: center center;
+	filter:  drop-shadow(0 0 2px white) drop-shadow(0 0 10px var(--patronus_out));
+	transform: scale(.0001);
+	transform-origin:center top;
+	transition: all 1s eases;
+}
+.boxMenuDireito:nth-child(6):hover:before{
+	background-position: center top;
+	transform: scale(1);
+	transition: transform 1s ease, background-position 1s ease;
+}
+
+.boxMenuDireito:nth-child(6) h4.tituloMenuDireito:before, .boxMenuDireito:nth-child(6):after{ /*ONDAS*/
+	position:absolute;content:"";display:block;
+	top:50px;left:70px;
+	height:27px;
+	width:157px;
+	background:var(--vidro);
+	border-radius:50%;
+	transform: scale(.04, .007) rotateX(-10deg);
+	perspective:1000px;
+}
+.boxMenuDireito:nth-child(6):before{/*tigela*/
+	z-index:-3;
+}
+.boxMenuDireito:nth-child(6):after{
+	z-index:-1;
+}
+.boxMenuDireito:nth-child(6) h4.tituloMenuDireito:hover:before{
+	animation: rip 3s ease-out 2s infinite;
+}
+.boxMenuDireito:nth-child(6):hover:after{
+	animation: rip 3s ease-out 3s infinite;
+}
+.boxMenuDireito:nth-child(6) h4.tituloMenuDireito:after{/*AGUA*/
+	display:block;position:absolute;content:"";
+	top:0;left:0;
+	height:30px;
+	width:30px;
+	border:1px solid rgba(0, 0, 25, .5);
+	background:rgba(0, 0, 25, 1);
+	box-shadow: inset 0 0 0 0 rgba(0, 0, 25, 1),
+					inset 0 0 0 0 rgba(0, 0, 25, 1),
+					inset 0 0 0 0 darkturquoise;
+	border-radius:100px;
+	transform: translate(135px, 60px) scale(.0001) rotateX(-10deg);
+	perspective:1000px;
+	overflow:hidden;
+	z-index:-2;
+}
+.boxMenuDireito:nth-child(6):hover h4.tituloMenuDireito:after{
+	transform: translate(135px, 48px) scale(5.4, .9) rotateX(-10deg);
+	animation: insidePensieve 4s linear 1, insidePensieve2 2s linear 4s infinite alternate;
+	transition: transform 4s ease .4s;
+}
+.boxMenuDireito:nth-child(6):hover h4.tituloMenuDireito{
+	text-shadow: 0 -2px 5px white, 0 -5px 10px darkturquoise;
+	transition: text-shadow 2s ease 2s;
+}
+@keyframes insidePensieve2{
+	from{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 5px  5px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+	}
+	to{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 15px 10px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+/*
+	60%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 15px 10px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+	80%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 5px  5px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+	100%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 5px  5px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+*/
+}
+@keyframes insidePensieve{
+	from{
+		box-shadow: inset 0 0 0 0 rgba(0, 0, 25, 1),
+					inset 0 0 0 0 rgba(0, 0, 25, 1),
+					inset 0 0 0 0 darkturquoise;
+	}
+	20%{
+		box-shadow: inset 0 0 20px 10px rgba(0, 0, 25, 1),
+					inset 0 0 10px 10px rgba(0, 0, 25, 1),
+					inset 0 0 5px  4px darkturquoise;
+		}
+	60%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 15px 10px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+	80%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 5px  5px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+	100%{
+		box-shadow: inset 0 0 25px 3px rgba(0, 0, 25, .8),
+					inset 0 0 5px  5px rgba(0, 0, 25, .5),
+					inset 0 0 5px  20px darkturquoise;
+		}
+}
+
+@keyframes rip2 
+{
+  0%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent;
+  }
+  15%  {
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 rgba(255,255,255,.2),
+               0 0 0 0 transparent,
+               0 0 0 0 rgba(0,0,0,0.1);
+  }
+  100% {
+    box-shadow:0 0 400px 500px transparent,
+               0 0 100px 600px transparent,
+               0 0 300px 700px transparent,
+               0 0 50px 800px transparent;
+  }
+}
+@keyframes rip 
+{
+  0%  {
+	background:transparent;
+    box-shadow:0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent,
+               0 0 0 0 transparent;
+  }
+  15%  {
+	background: rgba(0, 206, 209, .4);
+    box-shadow:0 0 0 0 rgba(255,255,255,.2),
+               0 0 0 0 rgba(0,0,0,0.1),               
+               0 0 0 0 rgba(255,255,255,.2),
+               0 0 0 0 rgba(0,0,0,0.1);
+  }
+  100% {
+	background: rgba(0, 206, 209, .1);
+    box-shadow:0 0 400px 2500px transparent,
+               0 0 50px 2600px transparent,               
+               0 0 300px 1800px transparent,
+               0 0 50px 2000px transparent;
+  }
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(6) h4.tituloMenuDireito{
+		text-shadow: 0 -2px 5px white, 0 -5px 10px darkturquoise;
+		transition: text-shadow 2s ease 2s;
+	}
+	.boxMenuDireito:nth-child(6):before{ /*TIGELA*/
+		background-position: center top;
+		transform: scale(1);
+	}
+	.boxMenuDireito:nth-child(6) h4.tituloMenuDireito:before, .boxMenuDireito:nth-child(6):after{ /*ONDAS*/
+		display:none;
+	}
+	.boxMenuDireito:nth-child(6) h4.tituloMenuDireito:after{/*AGUA*/
+		transform: translate(135px, 48px) scale(5.4, .9) rotateX(-10deg);
+		animation: insidePensieve 4s linear -4s 1, insidePensieve2 2s linear -2s 1 forwards;
+	}
+	.boxMenuDireito:nth-child(6):hover h4.tituloMenuDireito:after{
+		animation: insidePensieve 4s linear -4s 1, insidePensieve2 2s linear -2s 1 forwards;
+	}
+}
+
+/*========== SETIMO OBJETO ============================================*/
+/*sala precisa*/
+
+.boxMenuDireito:nth-child(7) h4.tituloMenuDireito{
+	height: 150px;
+	display:flex;flex-direction:column;justify-content:center;
+	transition: height 2s ease 2s;
+}
+.boxMenuDireito:nth-child(7) h4.tituloMenuDireito:before{ /*PAREDE*/
+	display:block;content:"";position:absolute;
+	top:0;left:0;
+	height:100%;width:100%;
+	background:url(https://dl.dropboxusercontent.com/s/fipmyze3mdgqzs2/onlywall.png)no-repeat;
+	background-size:contain;background-position:center center;
+	filter:invert(.3) contrast(3) drop-shadow(0 0 2px black) drop-shadow(0 0 10px var(--patronus_out));
+	-webkit-clip-path: circle(0% at 50% 50%);
+	clip-path: circle(0% at 50% 50%);
+	z-index:-1;
+	transition: all 2s ease;
+}
+.boxMenuDireito:nth-child(7) h4.tituloMenuDireito:after{/*PORTA*/
+	display:block;content:"";position:absolute;
+	top:0;left:0;
+	height:100%;width:100%;
+	background:url(https://dl.dropboxusercontent.com/s/zs8iua9xaqbmiiw/onlyDoor.png)no-repeat;
+	background-size:contain;background-position:center center;
+	filter:saturate(40);
+	opacity:0;
+	z-index:-1;
+	transition: opacity 1s ease;
+}
+.boxMenuDireito:nth-child(7):hover h4.tituloMenuDireito:before{/*PAREDE*/
+	-webkit-clip-path: circle(80% at 50% 50%);
+	clip-path: circle(80% at 50% 50%);
+	transition: all 4s ease;
+}
+.boxMenuDireito:nth-child(7):hover h4.tituloMenuDireito{
+	color:black;
+	text-shadow: 0 0 2px white, 0 0 3px white, 0 0 4px white, 0 0 5px white;
+	transition: all 1s ease;
+}
+.boxMenuDireito:nth-child(7) h4.tituloMenuDireito:hover:after{/*porta*/
+	opacity:1;
+	transition: opacity 3s ease-out 1s;
+}
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	.boxMenuDireito:nth-child(7) h4.tituloMenuDireito{
+		color:black;
+		text-shadow: 0 0 2px white, 0 0 3px white, 0 0 4px white, 0 0 5px white;
+	}
+	.boxMenuDireito:nth-child(7) h4.tituloMenuDireito:before{ /*PAREDE*/
+		-webkit-clip-path: circle(80% at 50% 50%);
+		clip-path: circle(80% at 50% 50%);
+	}
+	.boxMenuDireito:nth-child(7) h4.tituloMenuDireito:after{/*PORTA*/
+		opacity:1;
+	}
+}
+/*----- detalhe ultimo box --------------------------------------------*/
+.boxMenuDireito:last-child .textoMenuDireito{
+	padding-bottom:50px;/*isso é para apertar no veja todos seguidores sem ficar hovando e deshovando o box*/
+}
+/*##################################################################*/
+
+.boxMenuDireito b{
+	    color: #7F1313;
+}
+.boxMenuDireito .textoMenuDireito{ /*Atenção: isso aqui é o TEXTO! não o título! */
+        background-color: transparent;
+        color:white;
+        font-size:16px;
+        font-family:var(--font_main)!important;
+        text-transform:lowercase;
+        font-variant:small-caps;
+        font-size-adjust:0.40;
+        text-align: center;
+}
+.boxMenuDireito .textoMenuDireito:hover{
+}
+
+.boxMenuDireito .espacamento{
+/*
+	margin-bottom:35px;
+*/
+}
+
+/* ####################################################################### */
+/* Estilo das imagens do menu direito, tal como os avatares               */
+.boxMenuDireito a{
+	text-align:center!important;
+	font-family:var(--font_main);
+	font-size:14px!important;
+	text-transform:capitalize!important;
+	font-size-adjust:0.48;
+	color:var(--patronus_core);
+}
+.boxMenuDireito a:hover{
+	text-decoration:underline;
+}
+
+
+
+/*========= AMIGOS ====================================================*/
+
+/*---------- AMIGOS EM COMUM ------------------------------------------*/
+aside.sidebar #amigos p{
+	margin:10px 0;
+}
+
+/*---------- AMIGOS SCROLL --------------------------------------------*/
+
+#divAmigosScroll.scroll,
+#divGruposScroll.scroll{
+	position:relative;
+	background:transparent;
+}
+
+#divAmigosScroll,
+#divGruposScroll{
+	margin-bottom:0px;margin-top:20px;
+	border-top:1px dashed white;
+	border-bottom:1px dashed white;
+	border-left:1px solid white;
+	border-right:1px solid white;
+}
+
+/*---------- SCROLL BAR AMIGOS E GRUPOS -------------------------------*/
+.boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar{/*a barra completa*/
+	width: .4em!important;
+	height:.1em;
+}
+.boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar-track{ /*caminho da barra*/
+	background:black;
+}
+.boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar-track:horizontal{
+	background:black;
+}
+.boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar-corner{
+	background:transparent;
+}
+.boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar-thumb{ /*haste que percorre a barra*/
+	background-color: white;
+	box-shadow: 0 0 3px 2px transparent;
+	border-radius:0px;
+	transition: box-shadow 1s ease;
+}
+#meio:hover .boxMenuDireito.hidden-xs.hidden-sm ::-webkit-scrollbar-thumb{
+	box-shadow: 0 0 3px 2px var(--patronus_out);
+	transition: box-shadow 1s ease!important;
+}
+/*---------- AMIGOS RESULTADO -----------------------------------------*/
+
+#divAmigosResultado,
+#divGruposResultado{
+	position:relative;
+	display:flex;flex-wrap:wrap;
+	width:100%; height:100%;
+	justify-content:space-between;
+	padding:10px;
+}
+
+/*---------- AMIGOS BOXUSUARIO ----------------------------------------*/
+
+#divAmigosResultado .boxUsuario,
+#divGruposResultado .boxUsuario{ /*caixa maior que abrange a imagem e o nome*/
+	position:relative;
+	display:flex;
+		flex-direction:column;
+		align-items:center;
+		justify-content:space-around;
+	padding:0;
+	margin:0px;
+	width:80px;
+	height:100px!important;
+}
+
+#divAmigosResultado div.boxUsuario a:nth-child(1),
+#divGruposResultado div.boxUsuario a:nth-child(1){ /*caixa que abrange apenas a imagem*/
+	width:70px!important;height:70px!important;
+	position:relative;
+}
+#divAmigosResultado div.boxUsuario a:nth-child(2),
+#divGruposResultado div.boxUsuario a:nth-child(2){ /*efetivamente os nomes de cada usuario*/
+	position:relative;
+	/*recomendaçoes de Bereu*/
+	
+	text-transform: lowercase!important;
+	font-weight:lighter; 
+	font-size: 14px!important; font-weight:100;
+	font-variant:small-caps!important; 
+	font-family:var(--font_main)!important; 
+	font-size-adjust: 0.48;
+	word-wrap: break-word;
+	line-height:11px!important; /*objetivo de aproximar mais as linhas*/
+	
+	min-height:24px!important;	max-height:50px!important; /*isso padroniza a maioria no min-height e limita os grandes nomes de acordo com o espaço restante na caixa BoxUsuario (altura do boxUsuario - altura da imagem) (100 - 50)*/
+	min-width:60px!important;/*mesma largura da caixa boxUsuario*/
+	transition: all 1s ease;
+}
+#divAmigosResultado div.boxUsuario:hover a:nth-child(2),
+#divGruposResultado div.boxUsuario:hover a:nth-child(2){
+	text-decoration:none!important;
+	text-shadow: 0 0 10px var(--patronus_in), 0 0 1px var(--patronus_out);
+	transform: scale(1.2);overflow:visible!important;
+	transition: all 1s;
+}
+.boxUsuario img{
+	border: 1px solid var(--color_destaque);
+	width:60px!important;
+	height:60px!important;
+	
+}
+
+.boxUsuario a:nth-child(1){ /*box que contem a imagem*/
+	width:60px!important;height:60px!important;
+}
+
+/*hovers unicos -------------------------------------------------------*/
+#divAmigosResultado .boxUsuario a img,
+#divGruposResultado .boxUsuario a img{
+	opacity: .5;
+	transition: all 1s ease;
+}
+#divAmigosResultado .boxUsuario a img:hover,
+#divGruposResultado .boxUsuario a img:hover{
+	box-shadow: 0 0 20px 0 var(--patronus_out), inset 0 0 20px 0 var(--patronus_in);
+	opacity: 1;
+	transition: all 1s ease; 
+}
+aside.sidebar .boxUsuario:nth-child(31n - 30) a img:hover{	animation: shake-little 100ms ease infinite forwards;}
+aside.sidebar .boxUsuario:nth-child(31n - 29) a img{		border-radius: 0;transition: border-radius 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 29) a img:hover{	animation: shake-slow 5s ease infinite;border-radius: 50px;transition:  border-radius .3s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 28) a img:hover{	animation: shake-opacity 0.5s ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 27) a img:hover{	animation: shake-crazy 1000ms ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 26) a img:hover{	animation: shake-rotate 100ms ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 25) a img:hover{	animation: shake-hard  500ms ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 24) a img:hover{	animation: shake-chunk 4s ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 23) a img:hover{	animation: shake-vertical 100ms ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 22) a img:hover{	animation: shake 100ms ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 21) a img:hover{	animation: shake-horizontal 100ms ease infinite;} /*fim originais*/
+aside.sidebar .boxUsuario:nth-child(31n - 20) a img:hover{	animation: shake-rotate 2s ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 19) a img:hover{	animation: shake-slow 2s ease infinite;}
+aside.sidebar .boxUsuario:nth-child(31n - 18) a img:hover{	animation: shake-opacity 2s ease infinite;}
+
+aside.sidebar .boxUsuario:nth-child(31n - 17) a img{	transform: rotate(-50deg);}
+aside.sidebar .boxUsuario:nth-child(31n - 17) a img:hover{	animation: balanco 500ms ease infinite alternate;}
+aside.sidebar .boxUsuario:nth-child(31n - 16) a img{	transition: all 4s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 16) a img:hover{	transform: rotateY(720deg); transition: transform 4s ease-out;}
+aside.sidebar .boxUsuario:nth-child(31n - 15) a img{	transition: all 4s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 15) a img:hover{	transform: rotateX(720deg); transition: transform 4s ease-out;}
+aside.sidebar .boxUsuario:nth-child(31n - 14) a img:hover{	border-radius: 50px;  transform: rotate(720deg) scale(.4); transition: transform 2s ease-out, border-radius 2s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 13) a img:hover{	transform:  scale(.5) rotateY(360deg); transition: all .5s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 12) a img:hover{	animation: scaleUp 1s ease infinite alternate;}
+aside.sidebar .boxUsuario:nth-child(31n - 11) a img{	transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 11) a img:hover{	filter: hue-rotate(100deg); animation: enlarge 1s ease infinite alternate; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 10) a img{	border-radius: 50px; transform: scale(.4); transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 10) a img:hover{	filter: hue-rotate(200deg); animation: ballup 1s ease infinite alternate; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 9) a img{ transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 9) a img:hover{	border-radius: 50px; filter: hue-rotate(250deg); animation: giragiro 1s ease infinite alternate; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 8) a img:hover{	transform: rotate(0deg); outline: red solid 1px; filter: hue-rotate(180deg); animation: lineout .5s ease infinite; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 7) a img{	transform: scale(.5); transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 7) a img:hover{	border-radius: 50px; animation: xazam 2s ease infinite; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 6) a img{-webkit-clip-path:polygon(50% 0%, 100% 100%, 0% 100%);transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 6) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: triangulacao 2s ease infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 5) a img{-webkit-clip-path: polygon(	50% 25%, 	75% 50%, 	50% 75%, 	25% 50%); transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 5) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: enquadramento 2s ease infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 4) a img{-webkit-clip-path: polygon(	50% 0%, 	61% 35%, 	98% 35%, 	68% 57%, 	79% 91%, 	50% 70%, 	21% 91%, 	32% 57%, 	2% 35%, 	39% 35%); transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 4) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: star 5s ease infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(28) a img{-webkit-clip-path: polygon(	50% 0%, 	61% 35%, 	98% 35%, 	68% 57%, 	79% 91%, 	50% 70%, 	21% 91%, 	32% 57%, 	2% 35%, 	39% 35%); transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 3) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: star2 4s linear infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 2) a img{-webkit-clip-path: circle(20% at 0% 100%); transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 2) a img:hover{ box-shadow:0 0 0 0 transparent;	-webkit-clip-path: circle(100% at 0% 100%); transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 1) a img{-webkit-clip-path: polygon(50% 0%, 80% 80%, 20% 80%);  transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n - 1) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: shake-rotate 100ms infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n) a img{-webkit-clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 100%, 35% 100%, 35% 50%, 10% 50%);  transition:all 1s ease;}
+aside.sidebar .boxUsuario:nth-child(31n) a img:hover{ box-shadow:0 0 0 0 transparent;	animation: shake-opacity 2s infinite alternate; transform:  rotate(0deg); margin:0px 2px; transition: all 1s ease;}
+
+
+/*---------------------------------------------------------------------*/
+/*########### GRUPOS #####################*/
+/*
+
+#divGruposScroll.scroll{
+	position:relative;
+	background:transparent;
+}
+#divGruposScroll{
+	margin-bottom:0px;
+	margin-top:20px;
+	border-top:1px dashed white;
+	border-bottom:1px dashed white;
+	border-left:1px solid white;
+}
+*/
+/*
+
+#divGruposResultado div.boxUsuario a{
+	position:relative;
+	left:-6px;
+	width:90px;
+	text-transform: lowercase!important;
+	font-weight:lighter; 
+	font-size: 13px!important; 
+	font-variant:small-caps!important; 
+	font-family:var(--font_main)!important; 
+	font-size-adjust: 0.48;
+	word-wrap: break-word;
+}
+
+#divGruposResultado{
+	position:relative;
+}
+#divGruposResultado div.boxUsuario{
+	top:10px;
+	margin:0px;
+	position:relative;
+	
+	width:90px;
+	border-radius: 100px;	
+}
+
+#divGruposResultado:hover > .boxUsuario img{
+	border:2px solid white;
+}
+*/
+
+div.textoMenuDireito img{
+	border: 2px solid var(--color_destaque);
+}
+div.textoMenuDireito img:hover{
+	
+}
+.boxMenuDireito .textoMenuDireito.espacamento{
+	border-top:1px dashed white;
+	border-bottom:1px dashed white;
+	border-left:1px solid white;
+	border-right:1px solid white;
+}
+
+/*---------- Historias -----------------------------------------------*/
+.boxMenuDireito .textoMenuDireito figure{
+	transition: transform 2s ease;
+}
+.boxMenuDireito .textoMenuDireito figure:hover{
+	transform: rotate(20deg);
+	transition:transform 2s ease;
+}
+/*---------- OBSERVADO POR --------------------------------------------*/
+.boxMenuDireito .textoMenuDireito a img{
+/*
+	height:45px;
+	width:45px;
+	margin:0px 2px;
+	transition: margin 1s ease, transform 1s ease;
+*/
+}
+.boxMenuDireito .textoMenuDireito a img:hover{
+/*
+	margin:0px 15px;
+	transform: rotate(10deg);
+	transition:margin 1s ease, transform 1s ease;
+*/
+}
+/*---------- Botão buscar ---------------------------------------------*/
+.boxMenuDireito .right{
+	margin-right:10px;
+}

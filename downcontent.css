@@ -1,0 +1,939 @@
+/* ####################################################################### */
+/* Plas fev/mar/abr 2017                                      */
+/* template para perfil do social spirit                 */
+                                                                         
+/*===== GERAIS ========================================================*/
+
+section.boxConteudo{
+	margin:0px; /*para nivelar a margem esquerda com o boxUsuario*/
+	background: transparent;
+	position:relative;
+	z-index:0;
+	transition: all 1.4s;
+}
+
+section.boxConteudo strong,
+section.boxConteudo strong a{
+	font-weight:700!important;
+}
+
+section.boxConteudo span, section.boxConteudo span a{
+	color:var(--patronus_core);
+	text-transform:none;
+	font-family: var(--content);
+	font-size: 10px;font-size-adjust:var(--big);
+}
+
+section.boxConteudo a:link, section.boxConteudo .ativo{
+	font-family: var(--font_main);
+	text-decoration:none;
+	color:  var(--link);
+}
+section.boxConteudo a:link:hover{	text-decoration:underline; }
+
+section.boxConteudo .texto,
+section.boxConteudo .textoBg1,
+section.boxConteudo .textoBg2,
+section.boxConteudo .texto .text-center,
+section.boxConteudo .texto .text-justify,
+section.boxConteudo span,
+section.boxConteudo a,
+section.boxConteudo strong{ /*NAO COLOCAR O a SOZINHO POIS MUDA COISAS QUE ~PERTENCEM~ AO SAITE*/
+	font-family:var(--content);
+	color:var(--patronus_core);
+	font-size:14px!important;
+	font-size-adjust:0.55;
+}
+section.boxConteudo .texto{
+	text-align:center;
+	position:relative;
+	z-index:2;	
+	background:transparent;
+}
+section.boxConteudo .textoBg1, section.boxConteudo .textoBg2{
+	position:relative;
+	z-index:2;
+}
+
+section.boxConteudo .textoBg1{
+	padding:10px;
+	background:transparent;
+	margin-top:10px;margin-bottom:10px;
+}
+section.boxConteudo .textoBg2{
+	padding:10px;
+	background:var(--vidro)!important;
+}
+section.boxConteudo p.textoBg1, section.boxConteudo p.textoBg2{
+	padding:4px!important;
+	margin:0!important;
+}
+section.boxConteudo .textoBg1:before, section.boxConteudo .textoBg2:before{
+	position:absolute;display:block;content:"";
+	top:0;left:40%;right:40%; bottom:0;
+	height:auto;width:auto;
+	border-bottom: 1px dashed white;
+	z-index:-1;
+}
+section.boxConteudo p.textoBg1:before{display:none;}
+section.boxConteudo p.textoBg2:before{display:none;}
+/*
+
+section.boxConteudo p{ 
+	background:transparent!important;
+	font-family:var(--font_main);
+	font-size: 15px;
+	font-size-adjust:0.38;
+}
+section.boxConteudo p a{ 
+	font-family:var(--font_main)!important;
+	font-size: 15px!important;
+	text-transform:none;
+}
+section.boxConteudo p.textoBg2{}
+
+section.boxConteudo a.usuario{
+	font-size:15px;
+}
+
+section.boxConteudo .textoBg1, section.boxConteudo .texto, section.boxConteudo .textoBg2{
+	background: transparent;
+	color:white!important;
+	font-family:var(--font_main);
+	font-size:15px!important;
+}
+
+section.boxConteudo .textoBg1 a{
+	font-family:var(--font_main);
+	font-size:15px;
+	font-weight:100;
+	
+}
+
+section.boxConteudo .textoBg2, section.boxConteudo tr.textoBg2 td { 
+	background:rgba(0,0,0, 0.2)!important;
+}
+section.boxConteudo .textoBg2 a{
+	font-family:var(--font_main);
+	font-size:15px;
+	font-weight:100;
+}
+*/
+
+/*========== BOX H2 ===================================================*/
+/*São as caixas do corpo do boxConteudo.*/
+/*
+ * boxConteudo h2
+ * 		span
+ * 		.tituloPrincipal
+ * 			strong
+ * 		a
+ * 			.ativo
+ */
+ 
+section.boxConteudo h2.tituloPrincipal{
+	text-align:center;
+	width:100%;
+	font-size:14px!important;
+	font-family:var(--font_title);
+	font-variant:small-caps;
+	font-weight:700!important;
+	font-size-adjust:0.40;
+	position:relative;
+	color:white!important;
+	z-index:1;
+	margin-bottom:10px!important;
+	transition: all 1.4s ease;
+}
+
+section.boxConteudo h2.tituloPrincipal:after{
+	display:block;
+	content:"";
+	position:absolute;
+	top:0;
+	left:50%;
+	right:50%;
+	width:auto;
+	height:100%;
+/*
+	background:white;
+*/
+	border-top: 1px solid var(--patronus_core);
+	border-bottom: 1px solid var(--patronus_core);
+/*
+	box-shadow: 0px -5px 10px -5px var(--patronus_out) ,inset 0px 5px 10px -5px var(--patronus_in);
+*/
+	box-shadow: 0px -5px 10px -5px var(--patronus_out) ,inset 0px 5px 10px -5px var(--patronus_in), 0 5px 10px -5px var(--patronus_out), inset 0 -5px 10px -5px var(--patronus_in);
+	z-index:-1;
+	transition: all 1.4s;
+}
+section.boxConteudo:hover > h2.tituloPrincipal:after/*caso normal*/,
+section.boxConteudo:hover > form h2.tituloPrincipal:after/*caso de formularios*/,
+section.boxConteudo:hover  > .hidden-xs h2.tituloPrincipal:after/*caso de dados opcionais como cartao id*/{
+	left:0%;
+	right:0%;
+	transition: all 1.4s;
+}
+section.boxConteudo h2.tituloPrincipal:before{
+	display:block;
+	content:"";
+	position:absolute;
+	top:-200%;
+	bottom: -200%;
+	left:-20%;
+	right:-20%;
+	width:auto;
+	height:auto;
+	opacity: 0;
+	background: url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat, /*fim da linha superior de tijolos*/
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat,
+				url(https://dl.dropboxusercontent.com/s/bdfgcmcu5qx9x1b/primario.png) no-repeat;
+	
+	background-size: 25px 23px, 70px 23px,
+					 70px 23px, 70px 23px,
+					 70px 23px, 70px 23px,
+					 70px 23px, 70px 23px,
+					 70px 23px, 63px 23px,/*fim da linha superior*/
+					 70px 22px, 70px 22px,
+					 70px 22px, 70px 22px,
+					 70px 22px, 70px 22px,
+					 70px 22px, 70px 22px,
+					 70px 22px, 20px 22px;
+					 
+	background-position: 4.57% 5%, 28.3% 145%,
+						 -26.6% -45%, 135% 35%,
+						 23.4% 5%,  11.7% 60%,
+						 0.1% 20%, 28.4% 25%,
+						 56.8% 30%, 64.4% 15%, /*fim da linha superior de tijolos*/
+						 95.3% 155.5%, 43.6% 100.5%,
+						 2% 5.5%, 140.3% 200.5%,
+						 24.7% 75.5%, 60% 85.5%,
+						 99.4% 85.5%, 23.7% 85.5%,
+						 32.1% 5.5%, 95.3% 9.5%;
+	z-index:-1;
+	transform: scale(.3);
+	transition: background-position 1.4s, opacity 1s ease .4s, transform 1s ease 1.4s;
+}
+
+section.boxConteudo:hover >  h2.tituloPrincipal:before,
+section.boxConteudo:hover > form h2.tituloPrincipal:before,
+section.boxConteudo:hover > .hidden-xs h2.tituloPrincipal:before{
+	opacity: 1;
+	background-position: 14.57% 45%, 18.3% 45%,
+						 26.6% 45%, 35% 45%,
+						 43.4% 45%,  51.7% 45%,
+						 60.1% 45%, 68.4% 45%,
+						 76.8% 45%, 84.4% 45%, /*fim da linha superior de tijolos*/
+						 15.3% 55.5%, 23.6% 55.5%,
+						 32% 55.5%, 40.3% 55.5%,
+						 48.7% 55.5%, 57% 55.5%,
+						 65.4% 55.5%, 73.7% 55.5%,
+						 82.1% 55.5%, 85.3% 55.5%;
+	transform:  scale(1);					 
+	transition: background-position 1.4s, opacity .4s, transform 0s;
+}
+
+section.boxConteudo h2.tituloPrincipal strong{ /*parece que a ordem dos layers after before e elemento original não é afetada pelo z-index. Tentei de todo jeito e só recorrendo ao elemento strong foi que consegui colocar a palavra para cima*/
+	position:relative;
+	font-size:14px;
+	font-size-adjust:0.40;
+	font-family:var(--font_title);
+	font-weight:lighter;
+	font-variant:small-caps;
+	z-index:1;
+	color:white;
+	
+}
+section.boxConteudo h2.tituloPrincipal:hover > a.ativo strong, section.boxConteudo h2.tituloPrincipal:hover > strong{
+	
+}
+section.boxConteudo h2.tituloPrincipal:before, section.boxConteudo h2.tituloPrincipal:after{
+	
+}
+
+section.boxConteudo h2.tituloPrincipal:before{
+	
+}
+section.boxConteudo h2.tituloPrincipal:after{/*tive que recorrer ao after pq o background que desliza no tituloPrincipal não tem comportamento linear. Para os valores de porcentagem que eu precisava, o tamanho dele é irregular e seu deslocamento também.*/
+	
+}
+/*---------- H2 boxs normais ------------------------------------------*/
+section.boxConteudo h2 a{
+	position:relative;
+	font-size:18px;
+	font-size-adjust:0.40;
+	font-family:var(--font_main);
+	font-weight:lighter;
+	font-variant:small-caps;
+	color:white;
+}
+
+/*H2 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	section.boxConteudo h2.tituloPrincipal{
+		text-align:center;
+		padding-left:0;
+		margin:0!important;
+		background:var(--vidro_fume);
+	}
+	
+	section.boxConteudo h2.tituloPrincipal:before{
+		display:none;
+	}
+	section.boxConteudo h2.tituloPrincipal:after{
+		left:5px;
+		right:5px;
+	}
+}
+
+
+/*---------- DIV ATIVIDADES -------------------------------------------*/
+section.boxConteudo #divAtividades{
+	padding-top:10px;
+}
+section.boxConteudo .atividade{
+	position:relative;
+	z-index:2;
+	background:transparent;
+	display:flex!important;
+		justify-content:left;
+	padding:10px;
+}
+section.boxConteudo .atividade.textoBg1:before,
+section.boxConteudo .atividade.textoBg2:before{display:none;}
+section.boxConteudo .atividade .texto{
+	text-align:left;
+}
+section.boxConteudo .atividade .conteudo{
+	margin-left:0;
+	width:100%;
+	border-left:1px dashed white;
+	padding-left:1.5%;
+	padding-right:0;
+	display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+}
+section.boxConteudo .atividade .indicator{
+	width:0;
+	margin:0;
+}
+section.boxConteudo .atividade .avatar.left{
+	padding-right:1.5%;
+	padding-left:0;
+	display:flex;
+		align-items:top;
+	width:auto;
+}
+section.boxConteudo .atividade .avatar.left img{
+	border: 1px solid transparent;
+	opacity:.7;
+	transition: all 1s ease;
+}
+section.boxConteudo .atividade .avatar.left img:hover{
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px -5px var(--patronus_in);
+	border-color: var(--patronus_core);
+	opacity:1;
+	transition: all .4s ease;
+}
+/*---------- conteudo linkado -----------------------------------------*/
+section.boxConteudo .atividade .texto .clearfix div{
+	font-family:var(--content)!important;
+	font-size: 13px!important;
+	font-size-adjust:0.55!important;
+	font-weight: 300!important;
+}
+section.boxConteudo .atividade .texto .clearfix div strong a{
+	font-size: 14px!important;
+	font-family:var(--content)!important;
+	font-size-adjust:0.6!important;
+}
+/*---------- Apagar & Denunciar ---------------------------------------*/
+section.boxConteudo .atividade .acoes a{
+	font-family:var(--font_main)!important;
+	font-size: 13px!important;
+	text-transform:lowercase!important;
+	font-variant:small-caps!important;
+	font-size-adjust:0.6!important;
+	font-weight: 300!important;
+}
+section.boxConteudo .atividade .info .right a{
+	font-family:"droid serif";
+	font-size:10px!important;
+	
+	font-size-adjust:0.6;
+}
+
+/*---------- PAGINAÇÃO ------------------------------------------------*/
+section.boxConteudo .paginacao .numeros .btn{
+	transition: transform 2s ease;
+}
+section.boxConteudo .paginacao .btn:hover{
+	transform: translate(0px, 10px);
+	background:white!important;
+	transition: transform 1s ease;
+	text-decoration:none!important;
+}
+section.boxConteudo .paginacao .numeros .btn-default.active{
+	font-size:14px!important;
+	background:white!important;color:black!important;
+}
+
+/*########################################################*/
+section.boxConteudo b{ /*postado em + "item"*/
+	font-family:var(--font_main)!important;
+	font-size: 10px!important;
+	text-transform:uppercase;
+	font-size-adjust: 0.50;
+	color:white;
+}
+section.boxConteudo a.link:hover{ /*links dentro da section boxConteudo*/
+	text-decoration:underline;
+}
+
+
+/*========== .BAIXO ===================================================*/
+
+
+section.boxConteudo .baixo{ /*BOX*/
+	margin-top:20px;margin-bottom:10px;
+	position:relative;
+	z-index:2;
+	text-align:center;
+/*
+	transition: letter-spacing 1s ease;
+*/
+	color:white;
+	font-size-adjust: 0.50;
+	text-transform: uppercase!important;
+	font-family:var(--font_main);
+	font-size: 10px!important;
+	font-weight:100;
+}
+section.boxConteudo .baixo:before{ /*ornamento abaixo da palavra*/
+	display:block;position:absolute;content:"d";
+	top:100%;left:calc(50% - 75px);
+	width:150px; height:50px;
+/*
+	outline:red solid 1px;
+*/
+	font-family:var(--ornaments2); font-size:70px;
+	color:var(--patronus_core);
+	line-height:11px;
+	text-transform:lowercase!important;
+	z-index:-1;
+	transform:translateY(-20px);
+	transition: all 1s ease;
+}
+#meio:hover section.boxConteudo .baixo:before{
+	text-shadow: 0 0 2px var(--patronus_core),
+				 0 1px 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out);
+}
+section.boxConteudo .baixo strong{
+	margin-right:10px;
+}
+section.boxConteudo div.baixo a{/*PALAVRAS*/
+	font-size-adjust: 0.50;
+	text-transform: uppercase!important;
+	font-family:var(--font_main);
+	font-size: 10px!important;
+	font-weight:100;
+}
+section.boxConteudo div.baixo i.fa.fa-caret-right{ /*setinha*/
+	color:white;
+	font-size-adjust: 0.50;
+	text-transform: uppercase!important;
+	font-size: 10px!important;
+	font-weight:100;
+}
+section.boxConteudo div.baixo a:hover{
+	color:white;
+}
+section.boxConteudo div.baixo:hover{
+/*
+	letter-spacing: 2px;
+	transition: letter-spacing 1s ease;
+*/
+}
+
+
+/*---------- Icones imagens galeria de styles -------------------------*/
+
+section.boxConteudo .boxGaleria .galeriaImagem img{
+	
+}
+section.boxConteudo .boxGaleria .galeriaImagem img{
+	transition: all 1s ease;
+}
+section.boxConteudo .boxGaleria{
+
+}
+section.boxConteudo .boxGaleria .galeriaImagem:hover .imagem-detalhe{
+	outline: white solid 1px!important;
+	outline-offset:10px!important;
+}
+section.boxConteudo .boxGaleria .galeriaImagem .imagem-detalhe:after,
+section.boxConteudo .boxGaleria .galeriaImagem .imagem-detalhe:before{
+	display:block;position:absolute;content:"";
+	top:0;left:0;right:0;bottom:0;
+	height:auto;width:auto:
+}
+section.boxConteudo .boxGaleria .galeriaImagem:hover .imagem-detalhe:after{
+	outline: var(--patronus_out) solid 2px;
+	outline-offset: 13px;
+}
+section.boxConteudo .boxGaleria .galeriaImagem:hover .imagem-detalhe:before{
+	outline: var(--patronus_in) solid 2px;
+	outline-offset: 7px;
+}
+section.boxConteudo .boxGaleria .galeriaImagem .imagem-detalhe span{
+	color:black!important;
+	font-family:var(--font_main)!important;
+	font-size:10px!important;
+}
+
+
+/*========== BOTÕES ===================================================*/
+section.boxConteudo .btn-danger{
+	border:1px solid white;
+	border-radius:00px;
+}
+section.boxConteudo .btn-default, section.boxConteudo .btn-default:hover{
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+/*========== QUOTE ====================================================*/
+#quote {
+	color: white;
+	background:transparent;
+	padding: 50px 70px;
+	position:relative;
+}
+#quote:after{
+	content:"";	display:block;	position:absolute;
+	top:0;	left:0;
+	width: 100%;height:100%;
+	background: url(https://dl.dropboxusercontent.com/s/3bo0ggogvtpq9o8/corner1.png) no-repeat, url(https://dl.dropboxusercontent.com/s/tnmilmzy1y9r1xn/corner2.png) no-repeat;
+	background-position: left top, right bottom;
+	background-size: 15% auto, 15% auto;
+	filter:hue-rotate(90deg);
+	animation: coresBrilho 8s ease infinite alternate;
+	animation-play-state:paused;
+}
+#quote:before{
+	display:block;position:absolute;content:"";
+	top:30px;bottom:30px;left:50px;right:50px;
+	background:var(--vidro);
+	z-index:-1;
+	border:1px solid var(--patronus_core);
+	transition: all 1s;
+}
+section.boxConteudo:hover #quote:before{
+	box-shadow: 0 0 5px 2px var(--patronus_out), inset 0 0 5px 2px var(--patronus_in);
+	transition: all 1s;
+}
+#quote .quotetop, #quote .quotemain, #quote strong a{
+	font-family:var(--content);
+	font-size: 14px!important;
+}
+#quote .quotemain, #quote .quotetop{transform:scale(.9);transition: all 1s ease!important;}
+#quote:hover .quotemain, #quote:hover .quotetop{transform:scale(1); transition: transform 1s ease;}
+
+#quote .quotetop{
+	margin-bottom:10px;
+}
+#quote:hover:after{
+	animation-play-state:running;
+}
+
+
+/*========== ARTICLE ==================================================*/
+
+
+section.boxConteudo article{
+	padding:20px;
+	text-align:left;
+	color:white;
+	background:var(--vidro);
+	border-radius:10px;
+	font-family:var(--font_main)!important;
+}
+section.boxConteudo h2{
+	text-align:center;
+	margin-bottom:15px;
+}
+section.boxConteudo h2 a, section.boxConteudo h2 a strong{
+	font-size:20px!important;
+	font-family:var(--font_title)!important;
+	text-transform:none!important;
+	font-variant:normal!important;
+	color:var(--link);
+	font-weight:lighter!important;
+}
+section.boxConteudo h2 span a{
+	font-size:16px!important;
+}
+section.boxConteudo h2 a.link:hover{/*consertando link no titulo h2 de cada artigo*/
+	text-decoration:underline!important;
+}
+section.boxConteudo article .label-fanfics{ /*consertando a palavra terminada ou em andamento de cada article*/
+	font-size:10px!important;
+	font-family:var(--font_main)!important;
+}
+section.boxConteudo article span.label{ /*consertando a palavra administrador do grupo*/
+	font-size:10px!important;
+	font-family:var(--font_main)!important;
+}
+section.boxConteudo article .texto,
+section.boxConteudo article .texto .text-justify,
+section.boxConteudo article .texto .text-center,
+section.boxConteudo article .texto .text-right,
+section.boxConteudo article .texto .text-left,
+section.boxConteudo article .texto strong{/*essas regras abaixo foram definidas para preservar a completa visualização quando se aperta em ver mais  */ 
+	font-family: Helvetica,sans-serif;
+    font-size: 15px!important;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+section.boxConteudo article .baixo .right span{ /*veja a sinopse completa*/
+	font-family:var(--font_main)!important;
+	font-size:12px;
+	letter-spacing:0px!important;
+	color:var(--link)!important;
+	font-variant:small-caps!important;
+	
+}
+section.boxConteudo article .baixo .right span:hover{letter-spacing:0px!important;}
+
+
+/*=========== USER CARD ===============================================*/
+
+section.boxConteudo .user-card .content strong,
+section.boxConteudo .user-card .content a{
+	color:black!important;
+	font-family:var(--font_main)!important;
+	text-transform:none!important;
+	font-variant:small-caps!important;
+}
+section.boxConteudo .user-card{
+	opacity:0.5;
+	border:1px solid transparent;
+	transition: all 1s ease;
+}
+section.boxConteudo .user-card:hover{
+	opacity:1;
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px -5px var(--patronus_in);
+	border-color:var(--patronus_core);
+	transition: all 1s ease;
+}
+section.boxConteudo .user-card:after{
+	display:block;content:"";position:absolute;
+	background:var(--vidro);
+	top:0;right:0;
+	width:50%;height:100%;
+	transition: all 1s ease;
+}
+section.boxConteudo .user-card:before{
+	display:block;content:"";position:absolute;
+	background:var(--vidro);
+	top:0;left:0;
+	width:50%;height:100%;
+	transition: all 1s ease;
+	z-index:1;
+}
+section.boxConteudo .user-card:hover:after,
+section.boxConteudo .user-card:hover:before{
+	width:0;
+	transition: all 1s ease;
+}
+
+section.boxConteudo .user-card .footer span{ /*números de historias e seguidores*/
+	color:#777!important;
+}
+section.boxConteudo .user-card .footer div:nth-child(1){
+	margin-right: 5px;
+}
+section.boxConteudo .user-card .footer div:nth-child(2){
+	margin-left: 5px;
+}
+@media (min-width: 992px){
+	section.boxConteudo .col-md-4{ 
+		width:30%;
+		margin: 0 auto;
+	}
+}
+
+
+/*========== LIVRO VISITAS ============================================*/
+
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2 a{
+	text-align:left;
+	position:relative;
+	font-size:20px!important;
+	font-family:var(--font_title)!important;
+	text-transform:none!important;
+	font-variant:normal!important;
+	color:var(--patronus_core)!important;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2 a{z-index:1;}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2{
+/*
+	position:relative;
+*/
+	overflow:hidden;
+	margin-bottom:20px;
+	padding-top:10px;
+	padding-left:80px;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2:before{
+	display:block;position:absolute;content:"l";
+	top:0;left:0;
+	padding-top:10px;
+	font-size:50px;color:white;font-family:var(--ornaments);font-weight:100;
+	transition: all 1s;
+}
+section.boxConteudo:hover form #cphConteudo_cphPerfil_divLivroListagem h2:before{
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+	transition: all 1s;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem h2 a:after{
+	display:block;position:absolute;content:"";
+	top:50%;left:calc(100% + 20px);
+	width:600px;
+	height:2px;
+	border-top:1px solid var(--patronus_core);
+/*
+	border-bottom:1px solid var(--patronus_core);
+*/
+	transition: all 1s;
+}
+section.boxConteudo:hover form #cphConteudo_cphPerfil_divLivroListagem h2 a:after{
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+	transition: all 1s;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem{overflow-x:hidden;}
+
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro .text-center,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro .text-right,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro .text-justify,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro .text-left{
+	font-family:var(--content)!important;
+	color:var(--patronus_core)!important;
+	font-size:14px!important;
+	font-size-adjust:var(--normal);
+	word-break:keep-all!important;
+	word-wrap:normal!important; /*para nao quebrar as palavras*/
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post .textoLivro{
+	background:var(--vidro);
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .post{
+	border-left: 1px dashed var(--patronus_core);
+	padding-left:10px;
+}
+/*Editar um post:*/
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem textarea{ /*torna visivel o conteudo das edições*/
+	color:white!important;
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem #bbcode .botoes{
+	background:transparent!important;
+}
+
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .textoBg2:before,
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .textoBg1:before{ display:none;}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .right .btn-group-sm{display:flex;}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .right .btn span{transition: all 1s;}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .right .btn:hover span{
+	color:black!important;
+	transition: all 1s ease;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .right .btn:hover{
+	background:var(--patronus_core);
+	transition: all 1s ease;
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem .right .dropdown-menu a{
+	color:black;
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem textarea{
+	height:40px;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem textarea::-webkit-scrollbar{/*a barra completa*/
+	width:.2em;
+	height:.2em;
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroFormulario fieldset .botoes{background:var(--vidro); border-bottom:1px solid var(--patronus_core);}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroFormulario fieldset textarea{
+	font-family:var(--font_main)!important;
+	font-size: 12px!important;
+	transition: all 1s ease;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroFormulario fieldset textarea:focus{
+	background:var(--vidro_fume)!important;
+}
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroFormulario #formulario h2{
+	font-family:var(--font_main);
+	color:var(--patronus_core);
+	font-size:16px;
+/*
+	margin-bottom:10px;
+*/
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem input{ /*botoes remover assinados e enviar resposta (nos comentarios)*/
+	font-size:14px!important;
+}
+
+section.boxConteudo form #cphConteudo_cphPerfil_divLivroListagem #cphConteudo_cphPerfil_divRemoverAssinados > strong a{
+	padding: 6px 0px!important;
+	font-family:var(--font_main)!important;
+	font-size:10px!important;
+}
+
+/*
+section.boxConteudo form #cphConteudo_cphPerfil_rptListagem_updRespostas_0*/
+
+
+/*========== FORUM ====================================================*/
+
+
+section.boxConteudo .listagem-textoBg1,
+section.boxConteudo .listagem-textoBg2{color:white;}
+
+section.boxConteudo .listagem-textoBg1{background:var(--vidro);}
+
+
+/*========== GRUPOS ===================================================*/
+
+
+/*========== JORNAIS ==================================================*/
+
+
+section.boxConteudo .clearfix .right,
+section.boxConteudo .clearfix .left{z-index:2;}
+section.boxConteudo .clearfix .left{color:white;position:relative;}
+
+
+/*========== DIVS HIDDEN ==============================================*/
+
+
+section.boxConteudo .hidden-xs{/*centraliza o user-card, etc*/
+	text-align:center;
+}
+
+
+/*========== SUBCABEÇALHOS DUPLA ESCOLHA =====================================*/
+
+
+/*HISTORIA OU STYLES ----------------------------------------------*/
+section.boxConteudo .baixo.baixo-select:before{display:none;} /*cancelando o ornamento dos outros casos do div baixo*/
+section.boxConteudo .baixo.baixo-select a{ position:relative;}
+section.boxConteudo .baixo.baixo-select a:nth-child(1):after{ /*opção da esquerda*/
+	display:block; position:absolute; content:"A";
+	top:100%;right:0;
+	height:30px;width:80px;
+/*
+	outline:white solid 1px;
+*/
+	text-align:right;
+	font-family:var(--ornaments2); font-size:80px;
+	line-height:5px;
+	color:var(--patronus_core);
+	transform:scale(1.8) translate(-20px, 5px);
+	transition: all 1s ease;
+}
+section.boxConteudo .baixo.baixo-select a:nth-child(2):after{ /*opção da direita*/
+	display:block; position:absolute; content:"A";
+	top:100%;left:0;
+	height:30px;width:80px;
+/*
+	outline:white solid 1px;
+*/
+	text-align:left;
+	font-family:var(--ornaments2); font-size:80px;
+	line-height:5px;
+	color:var(--patronus_core);
+	transition: all 1s ease;
+	transform:scale(1.8) translate(20px, 5px)rotateY(180deg);
+}
+section.boxConteudo .baixo.baixo-select .ativo{ /*especificamente pinta dessa cor a palavra ativa entre história e styles no menu favoritos. Pode mudar outras coisas, mas ainda não vi.*/
+	position:relative;
+}
+section.boxConteudo .baixo.baixo-select a.ativo:after{
+}
+#meio:hover section.boxConteudo .baixo.baixo-select .ativo:after{
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+}
+section.boxConteudo .baixo.baixo-select a:hover{/*especificamente faz o hover das palavras histórias e styles ficar sublinhado no menu do favoritos */
+	text-decoration:underline!important;
+}
+
+
+/*========== ALERTA EM PÁGINAS VAZIAS =================================*/
+
+
+section.boxConteudo .alert{
+	position:relative;
+	z-index:2;
+}
+/*========== FORMULARIO DEIXE SUA MENSAGEM ============================*/
+
+#formulario h2{
+/*
+	outline: red solid 1px;
+*/
+	position:relative;
+/*
+	margin-bottom:40px;
+*/
+}
+#formulario h2:after{
+	display:none;position: absolute; content:"";
+	bottom:100%;left:0;right:0;
+	height:30px;width:auto;
+	outline:orange solid 1px;
+}
+#formulario h2:before{
+	display:none;position: absolute; content:"";
+	top:100%;left:0;right:0;
+	height:30px;width:auto;
+	outline:orange solid 1px;
+}
+

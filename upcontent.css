@@ -1,0 +1,670 @@
+/*Código modularizado da parte do conteudo superior do style
+ * Autor: Pedro Lázaro
+
+/*========== BOXUSUARIO.BOXCONTEUDO ===================================*/
+
+#boxUsuario.boxConteudo{
+	position:relative;	display:flex; flex-direction:column;
+	background:transparent;
+	z-index:1;
+	margin-bottom:40px;
+	border-radius: 0;
+}
+/*----- ELEMENTO CENTRAL DECORACAO ------*/
+
+#boxUsuario.boxConteudo:after{ /*linha esquerda que sai do calice*/
+	display: block;content:"";position:absolute;
+	top:0;left:0%;right:calc(50% + 35px);
+	width:auto;	height: 1px;
+	border-top: 1px solid var(--patronus_core);
+	transition: all 1.4s;
+}
+#boxUsuario.boxConteudo:before{ /*border direito que sai do calice*/
+	display:block;	content:"";	position: absolute;
+	top:0;	right:0%;	left:calc(50% + 35px);
+	width:auto;	height: 1px;
+	border-top: 1px solid var(--patronus_core);
+	transition: all 1.4s;
+}
+@media only screen and (max-width: 767px) {
+	#boxUsuario.boxConteudo{
+		margin-bottom:40px!important;
+	}
+	#boxUsuario.boxConteudo:after{display:none;}
+	#boxUsuario.boxConteudo:before{display:none;}
+	
+}
+/*---------- BOX CONTEUDO H1 ------------------------------------------*/
+/*É o primeiro box, logo abaixo dos botões adicionar amigo e observar usuário */
+/*Atenção: h1 faz parte do #boxUsuario.boxConteudo; Já o
+ *  h2 faz parte do section.boxConteudo;
+ * São duas coisas diferentes.
+ * */
+#boxUsuario.boxConteudo h1.tituloPrincipal{
+	position:absolute;
+	top:-50px;	left:0;	right:0;
+	height: 50px;width:auto;
+	text-align:left;
+	font-family:var(--font_title)!important;
+	color:var(--color_main);
+	padding:0; padding-left:560px; padding-top:10px;
+}
+#boxUsuario.boxConteudo h1.tituloPrincipal a{transition: all 1s ease;}
+#meio:hover #boxUsuario.boxConteudo h1.tituloPrincipal a{
+	text-shadow: 0 0 1px var(--patronus_core),
+				 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+}
+
+#boxUsuario.boxConteudo h1.tituloPrincipal a:nth-child(1):before{
+	position:absolute;content:"and The";display:block;
+	top:-50px;left: -65px;
+	width:100px;height:20px;
+	font-family:var(--font_title);
+	font-size-adjust:0.4;
+	color:var(--color_main);
+	font-weight:100;
+	font-size:16px;
+}
+
+
+#boxUsuario.boxConteudo h1.tituloPrincipal a:nth-child(1):after{
+	position:absolute;content:" Excentric Muggle Called ";
+	top:-27px;left: -50px;
+	width:200px;height:20px;
+	font-family:var(--font_title);
+	font-size-adjust:0.4;
+	color:var(--color_main);
+	font-weight:100;
+	font-size:16px;
+}
+#boxUsuario.boxConteudo h1 a{ 
+	text-decoration: none!important;
+	text-align:center!important;
+	font-family:var(--font_title)!important;
+	color:var(--color_main)!important;
+	font-size: 20px!important;
+	font-weight:100;
+	font-size-adjust: 0.48;
+	padding: 0px;
+	position:relative;
+}
+
+/*H1 MOBILE -----------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	#boxUsuario.boxConteudo h1{
+		top:-20px!important;
+		padding:0!important;
+		text-align:center!important;
+		z-index:-2;
+/*
+		margin-bottom:50px!important;
+*/
+	}
+	#boxUsuario.boxConteudo h1.tituloPrincipal a:nth-child(1):before{
+		display:none;
+	}
+	#boxUsuario.boxConteudo h1.tituloPrincipal a:nth-child(1):after{
+		display:none;
+	}
+}
+
+/*BOTÕES SOLICITAR AMIZADE, OBSERVAR USUÁRIO, ETC ---------------------*/
+#boxUsuario.boxConteudo .btn{ /* cada botão entre os botões de observar o usuário, solicitar amizade, etc*/
+	text-transform:lowercase;
+	font-variant:small-caps;
+	font-size:12px;font-size-adjust: 0.48!important;
+	font-weight:300;
+	padding:3px 5px 3px 5px;
+	background:var(--vidro);
+	transition: all 1s ease;
+}
+#boxUsuario.boxConteudo .btn:hover{
+	font-size:12px;
+	background: white;
+}
+#boxUsuario.boxConteudo .btn span{	
+	text-transform:lowercase;
+	font-variant:small-caps;
+	font-size:12px;font-size-adjust: 0.48!important;
+	letter-spacing:1px;
+	font-weight:300;
+	transition: all 1s ease;
+}
+#boxUsuario.boxConteudo .btn:hover >  span{	
+	color:black;
+}
+#boxUsuario.boxConteudo .dropdown-menu li a{color:black;}
+#boxUsuario.boxConteudo .right.btn-group{ /*container dos botões observar usuário, solicitar amizade, etc*/
+	position:absolute;
+	top:0;right:0;
+}
+
+/*MOBILE -----------------------------------------------------------*/
+@media (max-width: 600px) {
+	#boxUsuario.boxConteudo .dropdown-menu{
+		right:0!important;
+		left:auto!important;
+	}
+}
+/*BOX COM INFORMAÇÕES DO USUÁRIO --------------------------------------*/
+
+#boxUsuario.boxConteudo div.textoBg1.clearfix{/*caixa maior que contem as fotos e a caixa de informações*/
+	margin-top: 30px;
+	padding: 30px 0;
+	display:flex!important;
+		align-items:center!important;
+		justify-content:space-around!important;
+	background:var(--vidro);
+	position:relative;
+	z-index:0;
+	border:2px solid transparent;
+	transition: all 1.5s ease;
+}
+#meio:hover #boxUsuario.boxConteudo .textoBg1.clearfix{
+	border: 2px solid var(--patronus_core);
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+}
+#boxUsuario.boxConteudo div.textoBg1.clearfix:after{
+	content:"";	display:none;	position:absolute;
+	top:0; left:0;
+	width:0; height:10%;
+	box-shadow: 0px -5px 10px -5px var(--patronus_out) ,inset 0px 5px 10px -5px var(--patronus_in), 5px 0px 10px -5px transparent;
+	/*box-shadow: top out | top inset | right out | right inset; ==== box-shadow: none/inset | h-lenght | v-lenght | blur-lenght | spread-lenght | color ;*/
+	border-top: 2px solid var(--patronus_core);
+	border-right: 0px solid var(--patronus_core);
+	transition: width .5s ease .2s, height .2s ease, border-right 0s ease .2s, box-shadow 0s ease .2s;
+}
+#meio:hover > #boxUsuario.boxConteudo div.textoBg1.clearfix:after{
+	width:100%;
+	height:100%;
+	border-right: 2px solid var(--patronus_core);
+	box-shadow: 0px -5px 10px -5px var(--patronus_out) ,inset 0px 5px 10px -5px var(--patronus_in), 5px 0px 4px -4px var(--patronus_out), inset -7px 0px 8px -6px var(--patronus_in);
+	transition: width 1s ease-in, height .4s ease 1s, border-right 0s ease 1s, box-shadow 0s ease 1s;
+}
+#boxUsuario.boxConteudo div.textoBg1.clearfix:before{ /*borders left e bottom*/
+	content:"";	display:none;	position:absolute;
+	top:0; left:0;
+	width:2%; height:0;
+	box-shadow: 0px 5px 10px -5px transparent , inset 0px -5px 10px -5px transparent, -5px 0px 4px -4px var(--patronus_out), inset 7px 0px 8px -6px var(--patronus_in);
+	/*box-shadow: bottom out | bottom inset | left out | left inset;-*/
+	border-bottom: 0px solid var(--patronus_core);
+	border-left: 2px solid var(--patronus_core);
+	transition: height .2s ease .5s, width .5s ease, border-bottom .0s ease .4s, box-shadow 0s ease .5s;
+}
+#meio:hover > #boxUsuario.boxConteudo div.textoBg1.clearfix:before{
+	width:100%;	height:100%;
+	box-shadow: 0px 5px 10px -5px var(--patronus_out), inset 0px -5px 15px -7px var(--patronus_in), -5px 0px 4px -4px var(--patronus_out), inset 7px 0px 8px -6px var(--patronus_in);
+	border-bottom: 2px solid var(--patronus_core);
+	transition: height .4s ease, width 1s ease .4s, border-bottom 0s ease .4s, box-shadow 0s ease .4s;
+}
+
+#boxUsuario .informacoes{/*caixa que contem as informaçoes do usuario*/
+	max-width:400px!important;
+	width:auto!important;
+	padding: 5px 50px!important;
+	text-align:center;
+	position:relative;
+	z-index:1;
+}
+
+#boxUsuario .informacoes,
+#boxUsuario .informacoes a,
+#boxUsuario .informacoes strong,
+#boxUsuario .informacoes strong a{
+	font-family: var(--font_main)!important;
+	font-size: 12px!important;
+	color: var(--color_dimmed);
+	font-size-adjust: 0.6!important;
+	font-weight:100;
+	text-transform: uppercase;
+	font-variant:small-caps;
+	transition: all 1s ease;
+}
+#meio:hover > #boxUsuario.boxConteudo .informacoes,
+#meio:hover > #boxUsuario.boxConteudo .informacoes a,
+#meio:hover > #boxUsuario.boxConteudo .informacoes strong,
+#meio:hover > #boxUsuario.boxConteudo .informacoes strong a
+{
+	color:var(--color_main);
+	transition: color 2s ease;
+}
+
+/*---------- ADORNOS .INFORMACOES -------------------------------------*/
+
+#boxUsuario .informacoes:before{ /*adorno lateral esquerdo*/
+	position:absolute;display:block;content:"Z";
+	top:-0px;left:0px;bottom:0px;
+	height:auto;width:auto;
+	font-family: var(--ornaments2);
+	font-size:180px;color:var(--color_dimmed);font-size-adjust:0.28!important;
+	z-index:-1;
+	transform:rotate(90deg);
+	transition: all 1s;
+}
+#meio:hover #boxUsuario .informacoes:before{
+	color:var(--patronus_core);
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+	transition: all 1s;
+}
+
+#boxUsuario .informacoes:after{/*adorno lateral direito*/
+	position:absolute;display:block;content:"a";
+	top:0px;right:0px;bottom:0px;
+	height:auto;width:auto;
+	font-family: var(--ornaments2);
+	font-size:180px;color:var(--color_dimmed);font-size-adjust:0.28!important;
+	font-variant:none!important;
+	text-transform: none!important;
+	z-index:-1;
+	transform:rotate(-90deg);
+	transition: all 1s;
+}
+#meio:hover #boxUsuario .informacoes:after{
+	color:var(--patronus_core);
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+	transition: all 1s;
+}
+
+/*---------- IMAGEM LADO ESQUERDO -------------------------------------*/
+
+#boxUsuario .avatar{
+	position:relative;
+	display:flex;flex-direction:column;justify-content:center;align-items:center;
+	padding:0px;
+	margin:0px;
+	width:150px;height:150px;
+	z-index:1;
+}
+#boxUsuario .avatar .text-center{ /*moldura 1 do avatar*/
+	position:relative;
+	padding:0px!important;
+	width:120px;
+	z-index:-2;
+}
+
+#boxUsuario .avatar img{ /*avatar em si*/
+	padding-top:0px!important;
+	filter: grayscale(1) brightness(0.45) contrast(1.05);
+	position:relative;
+	transition: all 1s ease!important;
+	max-width:120px;max-height:120px;
+}
+#meio:hover #boxUsuario .avatar img{
+	filter: grayscale(0) brightness(1) contrast(1) drop-shadow(0 0 1px white) drop-shadow( 0 0 5px var(--patronus_out));
+	transition: filter 1.4s ease-in;
+}
+#boxUsuario .avatar:hover img{
+	transform: rotateX(360deg) rotateY(-180deg) rotateZ(360deg) scale(.6);
+	transition: filter 1.4s ease-in, box-shadow .4s ease, transform 1s ease .2s, outline 1.4s ease-in!important;
+}
+#boxUsuario .textoDescricao{
+	padding:0;
+	padding-top:2px;
+	color: var(--patronus_core);
+	font-family:var(--font_title)!important;
+}
+#boxUsuario .avatar .textoDescricao .text-center:before{display:none;}
+#boxUsuario .textoDescricao strong{
+	font-family:var(--font_title)!important;
+}
+
+/*---------- VARINHA HARY POTE ----------------------------------------*/
+
+#boxUsuario .avatar .text-center:before{ /*varinha de Hary Pote*/
+	display:block;position:absolute;content:"";
+	bottom:-50px;left:-200px;
+	height:163px;
+	margin-left:50px;
+	width:20px;
+	background:url(https://dl.dropboxusercontent.com/s/vgr7cz14n4f8vi1/harrywand.png)no-repeat;
+	filter: brightness(2);
+	background-size:contain;
+	transition: all 1s ease;
+}
+#boxUsuario .avatar:hover >  .text-center:before{
+	transform: translate(50px, -30px) rotate(100deg);
+	transition: all 1s ease, transform .2s ease-in-out;
+}
+
+/*---------- IMAGEM LADO DIREITO --------------------------------------*/
+
+#boxUsuario .left.hidden-xs.hidden-sm{/*caixa que contem imagem do foguinho spirit*/
+	width:150px!important;height:150px!important;
+	display:flex; justify-content:center;
+
+}
+#boxUsuario .left.hidden-xs.hidden-sm .text-center{
+	display:flex;
+		align-items:center;
+	position:relative;
+	width:auto;height:auto;
+	padding:0!important;
+	z-index:1;
+}
+
+#boxUsuario .left.hidden-xs.hidden-sm .text-center img{
+	max-width:120px;max-height:120px;
+	margin:0!important;
+	padding-top:0px!important;
+	filter: grayscale(1) brightness(0.45) contrast(1.05) invert(0);
+	transition: all 1s ease;
+}
+#boxUsuario .left.hidden-xs.hidden-sm .text-center:hover img{
+	filter: grayscale(0) brightness(1) contrast(1) invert(1)!important;
+	animation: shake-hard 500ms ease .2s 5 alternate forwards;	
+	transition: filter .6s ease-in 0s!important;
+}
+
+#meio:hover #boxUsuario .left.hidden-xs.hidden-sm .text-center img{
+	filter: grayscale(0) brightness(1) contrast(1);
+	transition: filter 1.4s ease-in;
+}
+
+/*---------- VARINHA VALDOMIRO ----------------------------------------*/
+
+#boxUsuario .left.hidden-xs.hidden-sm .text-center:after{ /*varinha valdomiro*/
+	display:block;content:"";position:absolute;
+	left: 220px;bottom:-50px;
+	width:30px;height:200px;
+	margin-right:50px;
+	background:url(https://dl.dropboxusercontent.com/s/s5tytou5pohb6qn/voldemort.png)no-repeat;
+	background-size:contain;
+	transition: all 1s ease;
+}
+
+#boxUsuario .left.hidden-xs.hidden-sm .text-center:hover:after{
+	transform: translateX(-50px) rotate(-100deg);
+	transition: transform .2s ease-in-out;
+}
+
+
+/*---------- BOX INFO USUÁRIO MOBILE ----------------------------------*/
+
+@media (max-width:600px){
+	#boxUsuario .informacoes:before{display:none;}/*ornamentos*/
+	#boxUsuario .informacoes:after{display:none;}/*ornamentos*/
+	#boxUsuario.boxConteudo div.textoBg1.clearfix{/*caixa maior que contem as fotos e a caixa de informações*/
+	}
+	#boxUsuario.boxConteudo div.textoBg1.clearfix:after{
+		width:100%;
+		height:100%;
+		border-right: 2px solid var(--patronus_core);
+		box-shadow: 0px -5px 10px -5px var(--patronus_out) ,inset 0px 5px 10px -5px var(--patronus_in), 5px 0px 4px -4px var(--patronus_out), inset -7px 0px 8px -6px var(--patronus_in);
+	}
+	#boxUsuario.boxConteudo div.textoBg1.clearfix:before{ /*borders left e bottom*/
+		width:100%;
+		height:100%;
+		box-shadow: 0px 5px 10px -5px var(--patronus_out), inset 0px -5px 15px -7px var(--patronus_in), -5px 0px 4px -4px var(--patronus_out), inset 7px 0px 8px -6px var(--patronus_in);
+		border-bottom: 2px solid var(--patronus_core);
+	}
+
+	#boxUsuario .informacoes{/*caixa que contem as informaçoes do usuario*/
+		padding:5px 5px !important;
+		margin:0!important;
+		text-align:left!important;
+	}
+
+	#boxUsuario .informacoes, #boxUsuario .informacoes a{}
+	#boxUsuario .informacoes,
+	#boxUsuario .informacoes a,
+	#boxUsuario .informacoes strong,
+	#boxUsuario .informacoes strong a{
+		color:var(--color_main);
+	}
+	
+	/*---------- IMAGEM LADO ESQUERDO -------------------------------------*/
+
+	#boxUsuario .avatar{
+		margin:0 20px;
+		width:100px!important;
+	}
+	#boxUsuario .avatar .text-center{ /*moldura 1 do avatar*/}
+
+	#boxUsuario .avatar img{ /*avatar em si*/
+		filter: grayscale(0) brightness(1) contrast(1) drop-shadow(0 0 1px white) drop-shadow( 0 0 5px var(--patronus_out));
+	}
+	#boxUsuario .avatar:hover img{
+		transform: none;
+	}
+	#boxUsuario .textoDescricao{
+		position:relative;
+	}
+	#boxUsuario .avatar .textoDescricao .text-center{position:relative;}
+
+	/*---------- VARINHA HARY POTE ----------------------------------------*/
+
+	#boxUsuario .avatar .text-center:before{ /*varinha de Hary Pote*/
+		display:none;
+	}
+
+	/*---------- IMAGEM LADO DIREITO --------------------------------------*/
+
+	#boxUsuario .left.hidden-xs.hidden-sm{/*caixa que contem imagem do foguinho spirit*/}
+	#boxUsuario .left.hidden-xs.hidden-sm .text-center{}
+
+	#boxUsuario .left.hidden-xs.hidden-sm .text-center img{}
+	#boxUsuario .left.hidden-xs.hidden-sm .text-center:hover img{}
+
+	#meio:hover #boxUsuario .left.hidden-xs.hidden-sm .text-center img{}
+
+	/*---------- VARINHA VALDOMIRO ----------------------------------------*/
+
+	#boxUsuario .left.hidden-xs.hidden-sm .text-center:after{ /*varinha valdomiro*/
+		display:none;}
+
+	#boxUsuario .left.hidden-xs.hidden-sm .text-center:hover:after{	}
+
+}
+
+
+/*========== MENU PERFIL, ATUALIZAÇÕES, FAVORITOS =====================*/
+
+
+#boxUsuario.boxConteudo .baixo{
+	margin-top:20px;
+	background: var(--vidro);
+	height:60px;
+	display:flex;
+		align-items:center;
+		justify-content:center;
+	position:relative;
+	z-index:0;
+}
+#boxUsuario.boxConteudo .baixo ul{
+	display:flex;
+		align-items:center;
+		justify-content:space-between;
+	padding: 10px 10px;
+	position:relative;
+	z-index:0;
+	width:100%;
+}
+#boxUsuario.boxConteudo .baixo ul li{
+	margin:0;
+	display:flex;
+	padding:4px;
+	z-index:0;
+	position:relative;
+}
+
+/*---------- SEGMENTO EXTERNO -----------------------------------------*/
+
+#boxUsuario.boxConteudo .baixo ul li:after{ /*segmento superior externo: desliza para direita e desce*/
+	display:block;	content:"";	position:absolute;
+	top:-5px;left:-5px;
+	width: 0;height: 1px;
+	border-top: 1px solid transparent;
+	border-right: 1px solid transparent;
+	transition: height .1s ease .35s, width .25s ease .45s, border-right 0s ease .45s, border-top 0s ease .7s, box-shadow 0s;
+}
+#meio:hover > #boxUsuario.boxConteudo .baixo ul li:after{
+	height:calc(100% + 10px); /*2x o offset do top */width:calc(100% + 10px);
+	border-top: 1px solid var(--patronus_core);
+	border-right: 1px solid var(--patronus_core);
+	transition: width .5s linear, height .2s linear .5s;
+}
+#boxUsuario.boxConteudo .baixo ul li:before{/*segmento inferior externo: desliza para esquerda e sobe*/
+	display:block;	content:"";	position:absolute;
+	bottom:-5px;right:-5px;
+	width: 0px;	height: 1px;
+	border-left: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	transition: height .1s linear, width .25s linear .1s, border-left 0s ease .1s, border-bottom 0s ease .35s;
+}
+#meio:hover > #boxUsuario.boxConteudo .baixo ul li:before{
+	height:calc(100% + 10px);	width:calc(100% + 10px);
+	border-left: 1px solid var(--patronus_core);
+	border-bottom: 1px solid var(--patronus_core);
+	transition: width .5s linear .7s, height .2s linear 1.2s, border-bottom 0s ease .7s, border-left 0s ease .7s;
+}
+
+/*---------- PALAVRAS -------------------------------------------------*/
+
+#boxUsuario.boxConteudo .baixo ul li a{
+	
+	font-family: var(--font_main)!important;
+	font-size: 14px!important;
+	font-weight:200;
+	color: var(--color_main);
+	text-transform: lowercase;
+	font-variant: small-caps;
+	position:relative;
+	z-index:1;
+	padding: 4px 8px;
+	outline: transparent solid 1px;
+	transition: all 2s;
+}
+#boxUsuario.boxConteudo .baixo ul li:hover a{/* coloquei o hover no li para que todos os elementos ficassem unificados por ele.*/
+	text-decoration: none;
+	background: var(--vidro_fume);
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 1px var(--patronus_in);
+	outline-color:var(--patronus_core);
+	transition: all 1s;
+}
+
+/*---------- SEGMENTO INTERNO -----------------------------------------*/
+
+#boxUsuario.boxConteudo .baixo ul li a:after{/*segmento inferior interno: desliza para a esquerda e sobe*/
+	display:block;	content:"";	position:absolute;
+	bottom:-3px;right:-3px;
+	height:1px;	width:0;
+	border-bottom: 1px solid transparent;
+	border-left: 1px solid transparent;
+	transition: height .1s linear .35s, width .25s linear .45s, border-left 0s linear .45s, border-bottom 0s linear .7s;
+}
+#meio:hover > #boxUsuario.boxConteudo .baixo ul li a:after{
+	height:calc(100% + 6px);width:calc(100% + 6px);
+	border-left: 1px solid var(--patronus_in);
+	border-bottom: 1px solid var(--patronus_in);
+	transition: width .5s linear, height .2s linear .5s;
+}
+#boxUsuario.boxConteudo .baixo ul li a:before{/*segmento superior interno: desliza para a direita e desce*/
+	display:block;	content:"";	position:absolute;
+	top:-3px;left:-3px;
+	width:0;height:1px;
+	border-top:1px solid transparent;
+	border-right: 1px solid transparent;
+	transition: height .1s linear, width .25s linear .1s, border-right 0s linear .1s, border-top 0s linear .35s;
+}
+#meio:hover > #boxUsuario.boxConteudo .baixo ul li a:before{
+	height:calc(100% + 6px);	width:calc(100% + 6px);
+	border-top: 1px solid var(--patronus_in);
+	border-right: 1px solid var(--patronus_in);
+	transition: width .5s linear .7s, height .2s linear 1.2s, border-top 0s ease .7s, border-right 0s ease .7s;
+}
+
+/*---------- MEMU ATIVO -----------------------------------------------*/
+
+#boxUsuario.boxConteudo .baixo ul li a.ativo{
+	text-decoration:none;
+/*
+	background: rgba(46,139, 87, .4);
+*/
+	color:var(--patronus_core);
+	text-shadow: 0 0 1px var(--patronus_core), 0 0 4px var(--patronus_out), 0 0 10px var(--patronus_out);
+	transition: all .7s ease;
+}
+#meio:hover > #boxUsuario.boxConteudo .baixo ul li a.ativo{
+}
+
+/*---------- HOVER ESPECIFICO -----------------------------------------*/
+
+/*----- SEGMENTO EXTERNO ---------------*/
+
+#boxUsuario.boxConteudo .baixo ul li:hover:after{ /*segmento superior externo*/
+	width: 0!important;	height: 1px!important;
+	border-top: 1px solid transparent!important;
+	border-right: 1px solid transparent!important;
+	transition: height .1s linear .25s, width .2s linear .35s, border-right 0s linear .35s, border-top 0s linear .5s!important;
+}
+#boxUsuario.boxConteudo .baixo ul li:hover:before{
+	width: 0px!important;height: 1px!important;
+	border-left: 1px solid transparent!important;
+	border-bottom: 1px solid transparent!important;
+	transition: height .1s linear .25s, width .15s linear .35s, border-left 0s linear .35s, border-bottom 0s linear .5s!important;
+}
+
+/*----- SEGMENTO INTERNO ---------------*/
+
+#boxUsuario.boxConteudo .baixo ul li:hover > a:after{/*segmento inferior interno*/
+	height:1px!important;
+	width:0!important;
+	
+	border-bottom: 1px solid transparent!important;
+	border-left: 1px solid transparent!important;
+	transition: height .1s linear, width .15s linear .1s, border-left 0s linear .1s, border-bottom 0s linear .25s!important;
+}
+#boxUsuario.boxConteudo .baixo ul li:hover > a:before{
+	width:0!important;
+	height:1px!important;
+	border-top:1px solid transparent!important;
+	border-right: 1px solid transparent!important;
+	transition: height .1s linear, width .15s linear .1s, border-right 0s linear .1s, border-top 0s linear .25s!important;
+}
+
+/*---------- ORNAMENTO ABAIXO -----------------------------------------*/
+#boxUsuario.boxConteudo .baixo.baixo-perfil:before{/*PENA*/
+	display:block;position:absolute;content:"";
+	top:calc(100% + 15px);left:calc(50% - 50px);
+	height:30px;width:100px;
+	outline:transparent solid 1px;	
+	background: url(https://dl.dropboxusercontent.com/s/r3lajw0cgj78d5u/penaLow.png)no-repeat;
+	background-size:contain; background-position:center;
+	transition: all 1s ease;
+}
+#meio:hover #boxUsuario.boxConteudo .baixo.baixo-perfil:before{/*ILUMINAÇÃO DA PENA*/
+	filter: drop-shadow( 0 0px 2px var(--patronus_out));
+}
+#boxUsuario.boxConteudo .baixo ul:before{ /*LINHA A ESQUERDA DA PENA*/
+	display:block;position:absolute; content:"";
+	top:calc(100% + 30px);left:0;right:calc(50% + 60px);
+	height:2px; width:auto;
+	border-top: 1px solid white;
+}
+#boxUsuario.boxConteudo .baixo ul:after{/*LINHA A DIREITA DA PENA*/
+	display:block;position:absolute; content:"";
+	top:calc(100% + 30px);right:0;left:calc(50% + 60px);
+	height:2px; width:auto;
+	border-top: 1px solid white;
+}
+/*MOBILE*/
+
+@media only screen and (max-width: 767px) {
+	
+	#boxUsuario .baixo ul{ 
+		display:none!important;
+		visibility:hidden!important;
+	}
+	#boxUsuario.boxConteudo div.baixo.baixo-perfil{ /*para tirar um espaço em branco que tinha entre o box de infos do usuário e o menu perfil mobile*/
+		margin-top:0;
+	}
+	#boxUsuario.boxConteudo div.baixo.baixo-perfil .baixo.visible-xs{
+		width:100%!important;
+	}
+}

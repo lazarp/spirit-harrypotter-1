@@ -1,0 +1,520 @@
+/* Código modularizado da parte geral do style
+	Autor: Pedro Lázaro
+*/
+/*TABLE OF CONTENTS
+ * barras de rolagem
+ * seleção de elementos da base
+ * fontes
+ * body 
+ * Elementos gerais
+ * 		admin
+ * 		ativo
+ * 		link
+ * 		spoiler
+ * 			spoiler-top
+ * 				a
+ * 			spoiler-visible
+ * 			spoiler-box
+ * 		fieldset
+ * 			legend
+ * 				first-letter
+ * */
+
+/*========== FONTES  ==================================================*/
+
+@font-face {/*REVISADO*/
+	font-family: "Josefin";
+	src:	url('https://dl.dropboxusercontent.com/s/76kc9qon8fjl6pz/JosefinSlab-Regular.woff2') format("woff2"),
+			url('https://dl.dropboxusercontent.com/s/ha50j6y39ktlppd/JosefinSlab-Regular.woff') format("woff"),
+			url('https://dl.dropboxusercontent.com/s/m7vadg43buer19z/JosefinSlab-Regular.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: "hand";
+	src: 
+		url('https://dl.dropboxusercontent.com/s/ue8isxc78k6eqdx/JustMeAgainDownHere.woff2') format("woff2"),
+		url('https://dl.dropboxusercontent.com/s/4wghqw19mcao97q/JustMeAgainDownHere.woff') format("woff"),
+		url('https://dl.dropboxusercontent.com/s/jnyp5c09gcy5kcv/JustMeAgainDownHere.ttf') format("truetype");
+}
+@font-face {
+	font-family: "nymp";
+	src: url('https://dl.dropboxusercontent.com/s/422l2osvytpu98l/Nymphette-webfont.woff') format("truetype");
+}
+@font-face {/*Revisado*/
+	font-family: "three";
+	src: 
+		 url('https://dl.dropboxusercontent.com/s/c1kt7ljrcl9ecwf/lightThree.woff2') format("woff2"),
+		 url('https://dl.dropboxusercontent.com/s/joulhdmv5qyws2b/lightThree.woff') format("woff"),
+		 url('https://dl.dropboxusercontent.com/s/2yyn3rk04pu69e9/lightThree.ttf') format("truetype");
+}
+@font-face { /*REVISADO*/
+	font-family: "words";
+	src: url('https://dl.dropboxusercontent.com/s/jvpcy9ol648j1ev/BadScript-Regular.woff2') format("woff2"),
+		 url('https://dl.dropboxusercontent.com/s/exdaoiagv3i92hp/BadScript-Regular.woff') format("woff"),
+		 url('https://dl.dropboxusercontent.com/s/sp0hwqd3afrf3pz/BadScript-Regular.ttf') format("truetype");
+}
+@font-face {
+	font-family: "pomo"; /*apenas o icone do pomo de ouro*/
+	src: 
+		url('https://dl.dropboxusercontent.com/s/qby0zv3ep2k05lj/snitch.woff2') format("woff2"),
+		url('https://dl.dropboxusercontent.com/s/sm4wnxfq7njalca/snitch.woff') format("woff"),
+		url('https://dl.dropboxusercontent.com/s/esyiwzvwo3z5zp2/snitch.ttf') format("truetype");
+}
+/*========== GERAL ====================================================*/
+
+/*---------- VARIÁVEIS GLOBAIS ----------------------------------------*/
+:root{
+	color-rendering:optimizeSpeed;
+	
+	--font_main: "droid sans", "Open sans", "sans serif"; /*OK*/
+	--font_title: Josefin, Calibri, Georgia, serif;
+	--font_input: "droid sans", "Open sans", "sans serif";
+	--content: "droid sans", Calibri, Georgia, serif;
+	
+	--ornaments: nymp;
+	--ornaments2: three;
+	--handWrite: words, georgia, serif;
+	--handWrite2: hand, georgia, serif;
+	
+	--color_main: floralWhite;
+	--color_dimmed:rgba(255, 250, 240, .5);	
+	--color_destaque:white;
+	--link: lightskyblue;
+	
+	--patronus_core:white;
+	--patronus_out: dodgerblue; /*dodgerblue ficou bom*/
+	--patronus_in:silver;
+	
+	--vidro: rgba(0,0,0, .2);
+	--vidro_fume: rgba(0,0,0, .6);
+	
+	--big: 0.45;
+	--normal: 0.38;
+	--min: 0.30;
+}
+
+/*---------- SCROLLBAR ------------------------------------------------*/
+::-webkit-scrollbar{/*a barra completa*/
+	width:.2em;
+	height:.1em;
+}
+::-webkit-scrollbar-track{ /*caminho da barra*/
+	background:black;
+}
+::-webkit-scrollbar-track:horizontal{
+	background:black;
+}
+::-webkit-scrollbar-corner{
+	background:transparent;
+}
+::-webkit-scrollbar-thumb{ /*haste que percorre a barra*/
+	background-color: orangered;
+	border:.1em solid lightblue;
+/*
+	border-top: 20px solid red;
+	border-bottom: 20px solid red;
+*/
+	border-radius: 20px;
+}
+
+/*========== SELEÇÃO ELEMENTOS DA BASE ================================*/
+#base ::selection{ 
+background: mediumslateblue; 
+color: white; 
+} 
+
+#base ::-moz-selection{ 
+background-color: var(--patronus_out); 
+color: white; 
+
+} 
+
+/*lembrar de criar variáveis para fontes e cores*/
+/*========== CORPO  ===================================================*/	
+
+body {
+	background: white;
+/*
+	position:relative;
+	display:flex;
+		flex-direction:column;
+*/
+}
+
+/*---------- MOBILE ---------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+	position:auto;
+}
+/*========== ELEMENTOS GERAIS  ========================================*/
+
+.admin{
+	color: red;
+	font-family: georgia!important;
+	font-size: 10px!important;
+}
+.admin:hover{}
+.ativo{}
+.ativo:hover{}
+
+.link{
+	color: #7F1313;
+}
+.link:hover{
+	text-decoration:underline;
+}
+
+a, body {
+	color: #000000;
+}
+
+a:hover {
+    color: #cccccc;
+}
+
+
+
+/*=====================================================================*/
+#baixo {
+	border-top: 1px solid white;
+	background-color: transparent !important;
+	color: white;
+}
+
+#baixo a {
+	color: white;
+	background-color: white !important;
+}
+
+/*========== BASE =====================================================*/
+
+#base {
+	display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+	
+	width:1000px;
+	padding:0;
+	position:relative;
+	padding-bottom: 175px; /*importante para as frases terem espaço*/
+}
+#base:before{ /*pomo de ouro perto do footer*/
+	display:flex; justify-content:center; align-items:center;position:absolute;content:"\e900";
+	bottom:125px;left:calc(50% - 100px);
+	height:100px;width:200px;
+	font-family:pomo;font-size:70px;
+	color:var(--patronus_core);
+	transform:rotate(20deg) translateY(-10px);
+	text-align:center;
+	transition: all 1s ease;
+}
+#base:hover:before{
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+}
+@media only screen and (max-width: 767px) {
+	#base{padding-bottom:10px;}
+	#base:before{display:none;}
+}
+/*========== MEIO =====================================================*/
+#meio{ /*engloba toda a página abaixo do cima logo*/
+	margin-top:380px;/*espaço para o logo, já que ele precisou ficar como absolute por causa daquele problema do jump do time em atividades e etc*/
+	background:transparent;
+	position:relative;
+	border:none;
+	top:0px!important;
+	transition: all 1.4s;
+	padding-bottom:50px;
+}
+#meio:hover{
+	background: var(--vidro);
+	transition: all 1.4s;
+}
+#meio span a, #meio span{}
+#meio li{}
+#meio a{}
+#meio a.link{}
+
+#meio input {
+    background-color: transparent; /* Cor do fundo */
+    color: white; /* Cor do Texto */
+    border: 1px inset white; /* Tamanho e cor das bordas */
+    border-radius: 00px; /* A propriedade CSS3 border-radius destina-se a definir bordas arredondadas. */
+	font-size:18px;
+	font-family:var(--font_input);
+    position: relative !important;
+    letter-spacing: 1px;
+    font-weight:600;
+	transition: all 1s ease;
+}
+#meio input:focus{
+	background: var(--vidro_fume);
+	transition: all 1s ease;
+}
+#meio textarea { /*caixas em que o usuário escreve, tais como responder comentário, mensagem de solicitação de amizade, etc*/
+    font-size: 14px;
+    background:transparent;
+    color:var(--patronus_core);
+    font-family:var(--font_input);
+    font-size-adjust:0.48;
+    transition: all 1s ease;
+}
+#meio textarea:focus{
+	background: var(--vidro_fume);
+}
+#meio:before{ /*linha lá embaixo, trecho da esquerda*/
+	display:block;position:absolute;content:"";
+	bottom:0;left:0; right:calc(50% + 70px);
+	height:1px;width:auto;
+	border-top: 1px solid white;
+}
+#meio:after{ /*linha lá embaixo, trecho da direita*/
+	display:block;position:absolute;content:"";
+	bottom:0;right:0; left:calc(50% + 70px);
+	height:1px;width:auto;
+	border-top: 1px solid white;
+}
+/*BOTÕES --------------------------------------------------------------*/
+#meio .btn {}
+
+#meio .btn:hover{}
+
+#meio .btn span, #meio .btn, #meio a.btn, #meio .btn span:hover, #meio .btn:hover, #meio a.btn:hover { /*qualquer botão do meio*/
+	color: var(--color_main);
+	font-family: var(--font_main)!important;
+	font-size:10px;
+	font-size-adjust:0.38;
+	text-transform:lowercase;
+		font-variant:small-caps;
+	background:transparent;
+}
+#meio .btn{ /* cada botão entre os botões de observar o usuário, solicitar amizade, etc*/
+	background:transparent;
+	border:1px solid transparent;
+	transition: all 1s ease;
+}
+#meio .btn:hover{
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+	border:1px solid var(--patronus_core);
+	background: white;
+	color: black!important;
+}
+/*MENUS DROPDOWN ------------------------------------------------------*/
+#meio > ul > li > div > ul.dropdown-menu > li >a {
+    color: #111;
+    background-color: #696969!important;
+    font-size: 8px !important;
+	font-family: Calibri, Candara, serif!important;
+}
+
+#meio .dropdown-menu > li > a:hover{
+    color: #ffffff !important;
+    background: #111 !important;   
+}
+#meio .ir-topo a{color:var(--patronus_core);}
+/*---------- MOBILE ---------------------------------------------------*/
+#smartbanner .show{
+/*
+	top:0;
+*/
+}
+@media only screen and (max-width: 767px) {
+	#meio{margin-top:0;padding-bottom:0px;}
+	#meio:after, #meio:before{display:none;}
+}
+
+/*SPOILER -------------------------------------------------------------*/
+
+div.spoiler{
+	position:relative;z-index:2;
+	background:transparent;
+	border-style:none;
+	padding: 15px 20px 15px 20px;
+	font-weight:200;
+	color:#9d9b9b; /*obtive essa cor por meio do picker do browser*/
+}
+div.spoiler-top{
+	font-family:var(--font_title); font-size:14px!important;font-style:italic;
+	background:transparent;
+	text-align:center;
+	line-height: 10px;
+	position:relative;
+}
+
+div.spoiler-top a{
+	font-style:normal;
+	color:white;
+	font-size:16px!important;
+	font-size-adjust:var(--big);
+	font-family:var(--font_title)!important;
+	font-weight:200;
+}
+.spoiler-top:before{
+	font-weight:500;
+	display:inline-block;
+	content:"H";
+	font-family:var(--ornaments)!important;
+	font-size:40px;
+	margin-right:20px;
+	transition: all 1s;
+}
+.spoiler-top:after{
+	font-weight:500;
+	display:inline-block; /*trick para o pseudo elemento não ser afetado pelo underline do link *-**/
+	content:"G";
+	font-family:var(--ornaments)!important;
+	font-size:40px;
+	margin-left:20px;
+	transition: all 1s;
+}
+section.boxConteudo:hover .spoiler-top:before,
+section.boxConteudo:hover .spoiler-top:after{
+		color:white;
+		text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+	transition: all 1s;
+}
+div.spoiler-top a:hover{}
+.spoiler-top a:focus{
+	text-decoration:none;
+	color: white!important;
+}
+div.spoiler-visible{
+	margin:20px;
+	font-family:var(--content);
+	font-size:14px;
+	border-radius:2px;
+	background:transparent;
+	color:white;
+	text-align:center;
+	position:relative;
+
+}
+
+div.spoiler-box{
+	margin-top:10px;
+	background:var(--vidro);
+	border:1px solid var(--patronus_core);
+	transition: all 1s ease;
+}
+section.boxConteudo:hover .spoiler-box{
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+}
+
+/*FIELDSET ------------------------------------------------------------*/
+fieldset {
+	position:relative;
+	z-index:2; /*para ficar acima do h2*/
+	background: var(--vidro);
+    color: white;
+    border:1px solid white;
+}
+section.boxConteudo:hover fieldset{
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0  10px 2px var(--patronus-in);
+	transition: all 1s ease;
+}
+fieldset div{
+	font-family:var(--content);
+    font-size:14px;
+    line-height:1;
+}
+fieldset textarea{
+	margin-top:1%;
+	font-size: 14px!important;
+    background: transparent!important;
+    color: var(--patronus_core)!important;
+    font-family: var(--font_input)!important;
+    border:1px solid rgba(255,255,255,.6)!important;
+	resize:vertical;
+	transition: all 1s ease;
+}
+fieldset:focus{background:var(--vidro);}
+fieldset  legend{
+	color: white;
+	font-family: var(--font_title)!important;
+	font-size:14px!important;
+	font-size-adjust:0.48;
+}
+fieldset  legend:first-letter{
+	color: white;
+	font-family: var(--font_title)!important;
+	font-size:18px!important;
+	font-size-adjust:0.48;
+}
+fieldset .btn{
+	background: transparent;	
+}
+
+fieldset .btn, fieldset .btn:hover, fieldset a.btn.btn-danger{
+	outline:1px solid var(--patronus_core);
+	text-transform:lowercase!important;
+	font-variant:small-caps!important;
+	font-size:12px!important;
+	letter-spacing:1px!important;
+	font-weight:300!important;
+}
+fieldset .btn:hover{background:white!important;}
+fieldset .btn-success{
+	transition: all 1s;
+}
+fieldset .btn-success:hover{
+	filter:hue-rotate(-90deg);
+	background:white!important;
+}
+fieldset .btn-danger:hover{
+	filter:hue-rotate(170deg);
+}
+fieldset #cphConteudo_cphPerfil_divLivroPreview{/*preview da mensagem no livro de visita*/
+	color:var(--patronus_core)!important;
+}
+/*========== POPUP USUARIO ============================================*/
+
+
+#usuarioPopupContainer{ /*solucao para visualizacao completa do popup de usuario que aparece em minhas historias ou historias dele(a)*/
+	left: 900px!important;
+}
+
+
+/*========= POPUP FANFIC ==============================================*/
+
+#fanficPopupContainer{
+	max-height: 350px!important;
+	overflow-y:scroll;
+}
+
+
+/*========== ALERTA-WARNING ===========================================*/
+
+
+.alert-warning {/*São aqueles avisos que não podem ser modificados por fazerem parte do site, mas que não foram codados com important*/
+    color: #8a6d3b!important;
+    background-color: #fcf8e3!important;
+    border-color: #faebcc!important;
+}
+.alert-warning strong{
+	color: #8a6d3b!important;
+	font-weight:700!important;
+	font-size: 14px!important;
+	font-family: Helvetica,Arial,sans-serif!important;
+}
+.alert-warning .link{
+	color: #c09853!important;
+}
+.alert-warning .link{
+	font-weight: bold!important;
+    text-decoration: underline!important;
+    font-size: 14px!important;
+	font-family: Helvetica,sans-serif!important;
+
+}
+/*========== BARRA DAS NOTIFICAÇÕES ===================================*/
+/*Só estou resolvendo um problema do mobile. Não é para editar nada dessa barra, pois faz parte do site e não do perfil*/
+@media(max-width: 767px){
+	.navbar-fixed-top{
+/*
+		width:100%!important;
+*/		
+		position:fixed!important;
+	}
+}

@@ -1,0 +1,661 @@
+/*Código modularizado da parte de trás e do banner do style
+ * Autor: Pedro Lázaro
+ * */
+/*========== BODY =====================================================*/
+body{
+/*
+	background:url(https://dl.dropboxusercontent.com/s/5m5vas7uhj6nuai/officialPotter.jpg) no-repeat top fixed;	background-size: cover;
+*/
+	background:url(https://dl.dropboxusercontent.com/s/pxjz0m21t5ng7xg/officialPotter2LOW.jpg) no-repeat top fixed;	background-size: cover;
+}
+/*========== FUNDO ====================================================*/
+#fundo { 
+	position:relative;
+	padding:20px 0;
+	animation: softStart 1.5s ease-in-out 1;	
+}
+#fundo:before{ /*borders que contornam a página*/
+	position:absolute;display: block;content:"";
+	top:0px;bottom:0px;	left:50%;right:50%;
+	width:auto;	height: auto;
+	border-top: 1px solid var(--patronus_core);
+	border-bottom: 1px solid var(--patronus_core);
+	border-image: url(https://dl.dropboxusercontent.com/s/ttepyvaeragnbfm/padrao2.png) 20% stretch;
+	animation: fundoStart 2s ease 1 1s forwards;
+	z-index:0;
+}
+#fundo:after{ /*borders que contornam as páginas*/
+	position:absolute;display:block;content:"";
+	top:50%;bottom:50%;left:0;right:0;
+	width:auto;height:auto;
+	border-left: 1px solid var(--patronus_core);
+	border-right: 1px solid var(--patronus_core);
+	border-image: url(https://dl.dropboxusercontent.com/s/ttepyvaeragnbfm/padrao2.png) 20% stretch;
+	animation: fundoStart2 2s ease 1 1s forwards;
+	z-index:-1;
+}
+
+/*========== CIMA =====================================================*/
+
+#cima{
+	background:transparent;
+	position:absolute; /*as dimensões dele vão ficar relativas a base, portanto*/
+	overflow:hidden; /*serve para conter a tela que escurece o fundo */
+	top:-20px;bottom:-20px;left:-15.45%;right:-15.45%;
+	height: auto;width: auto;
+	display:flex;
+		align-items:center;justify-content:center;
+	}
+#cima:after{
+	position:absolute;display:block;content:"Plas.";
+	top:185px;left:calc(50% - 30px);
+	height:20px;width:100px;
+	font-family:var(--font_title);
+	font-size:14px;
+	color: var(--patronus_core);
+}
+/*========== MOBILE ===================================================*/
+@media only screen and (max-width: 767px) {
+	#cima{
+		position:relative;
+		width:100%!important;height:150px;
+		margin: 0 auto!important;
+		top:0;bottom:0;left:0;right:0;
+		margin-bottom:40px!important;
+		padding-bottom:70px!important;
+	}
+	#cima:after{opacity:0;}
+}
+/*========== LOGO =====================================================*/
+#logo{
+	position:absolute;
+	top:60px;
+	width: 1000px;height:300px;
+	max-height:350px!important;
+	margin-bottom: 30px;
+}
+#logo:after{
+	position: absolute;display:block;content:"";
+	top:0;left:0;
+	height:100%;width:100%;
+	z-index:1;
+	background: url(https://dl.dropboxusercontent.com/s/i6dyd3vk2a3cmih/H.png),
+			url(https://dl.dropboxusercontent.com/s/mcavyxi4ju4isha/a.png),
+			url(https://dl.dropboxusercontent.com/s/zekgbmfvtnya43p/r1.png),
+			url(https://dl.dropboxusercontent.com/s/on7w4b79ehfrrbt/r2.png),
+			url(https://dl.dropboxusercontent.com/s/z2r44n95yaih9xh/y.png),
+			
+			url(https://dl.dropboxusercontent.com/s/wj8wx3n6r7pwt8p/P.png),
+			url(https://dl.dropboxusercontent.com/s/msl9tyaxroll4ts/o.png),
+			url(https://dl.dropboxusercontent.com/s/zrc8n5qtklpodxh/t1.png),
+			url(https://dl.dropboxusercontent.com/s/mhqe2jrp2b26ab5/t2.png),
+			url(https://dl.dropboxusercontent.com/s/bf92hh2867wfh41/e.png),
+			url(https://dl.dropboxusercontent.com/s/czgy8yb8h4n8k0r/r3.png);
+	background-repeat:no-repeat;
+	background-position: 25% 80%,/*H*/33.25% 80%,/*a*/37.5% 80%,/*r*/42.25% 80%,/*r*/43.10% 80%,/*y*/54.6% 80%,/*P*/60.25% 80%,/*o*/64.2% 80%,/*t*/69% 80%,/*t*/72.5% 80%,/*e*/77.1% 80%;/*r*/
+	background-size: auto 65%;
+	margin-bottom: 30px;
+	filter: grayscale(1) brightness(0.45) contrast(1.05) hue-rotate(0deg);
+	transition: filter 1s;
+}
+#logo:before{ /*fundo que escurece abaixo de todo o style*/
+	display:block;content:"";position:absolute;
+	z-index:-1; /*antes estava -1 !*/
+	width:auto;	height:9000%;
+	top:-20%;left:-20%;right: -20%;
+	margin: 0 auto;
+	background: var(--vidro_fume);
+	transition: all 1s;
+}
+#base:hover > #cima #logo:after{ /*quando a base hova, o logo fica claro*/
+	filter: grayscale(0) brightness(1) contrast(1) hue-rotate(0deg) drop-shadow(0 0 3px var(--patronus_out));transition: filter 1s;
+}
+
+#logo:hover:after{/*quando logo é hovado, dancinha comeca*/
+	transform:scale(1); /*gambiarra para que o firefox parasse de frescar*/
+	animation: haryPote 3s linear infinite;
+	filter: grayscale(0) brightness(1) contrast(1) hue-rotate(90deg) drop-shadow(0 0 1px black) drop-shadow(0 0 5px lightgreen)!important;
+	transition: filter 1s;
+}
+
+#cima:hover > #logo:after{ /*quando o cima, que está estendido por todo o estaile hovar, logo fica escuro*/
+	filter: grayscale(1) brightness(0.45) contrast(1.05) hue-rotate(0deg);	transition: filter 1s ease;
+}
+
+#base:hover > #cima #logo:before{/*quando a base hova, a sombra pelo fundo de todo o staile desaparece*/
+	background:transparent;transition: all 2s;
+}
+
+#logo:hover:before{/*quando o logo é hovado o fundo permanece sombreado.*/
+	background:var(--vidro_fume)!important;	transition: all 1s;
+}
+
+#cima:hover #logo:before{ /*quando cima hova, fundo escurece*/
+	background:var(--vidro_fume)!important;	transition: all 1s ease;
+}
+
+
+/*========== MOBILE ===================================================*/
+@media only screen and (max-width: 767px) {
+	#logo{
+		position:relative;
+		width:100%;height:auto;
+		padding-top:30%!important;
+		margin-bottom:0px;
+	}
+	#logo:before{display:none;}
+	#logo:after{
+		width:100%;height:auto;
+		padding-top: 30%;
+		background:url(https://dl.dropboxusercontent.com/s/zsus8at821w1gf5/HarryPotterMobileLOW.png)no-repeat;
+		background-size:contain;background-position:center center;
+		filter:none;
+	}
+	/*HOVERS*/
+	
+	#base:hover > #cima #logo:after{ /*quando a base hova, o logo fica claro*/
+		filter:none;
+	}
+	#cima:hover #logo:after{ /*quando o cima, que está estendido por todo o estaile hovar, logo fica escuro*/
+		filter:none;
+	}
+	#logo:hover:after{
+		transform:scale(1); /*gambiarra para que o firefox parasse de frescar*/
+		animation:none;
+		filter: none!important;
+	}
+}
+
+/*========== FOOTER ===================================================*/
+
+footer{
+	position:relative;
+}
+
+/*---------- TEXTO ----------------------------------------------------*/
+footer .logo:before{/*Frases*/
+	display:flex; justify-content:center; align-items:center; position:absolute;content:"";
+	top: -140px;left: calc(50% - 600px);
+	height:100px; width:1200px;
+	text-align:center;
+	color:var(--patronus_core);
+	z-index:2;
+	font-family: var(--handWrite); font-size: 30px;
+	transition: all 1s ease;
+	/*frases*//*apostrofo = \0027*/
+	--phrase1: '“I solemmly swear I am up to no good.”';
+	--phrase2:'“Words are, in my not-so-humble opinion, our most inexhaustible source of magic. Capable of both inflicting injury, and remedying it.”';
+	--phrase3:'“Ah, yes,” he said softly, “Harry Potter. Our new - celebrity.”';
+	--phrase4:'“It is the unknown we fear when we look upon the death and darkness, nothing more.”';
+	--phrase5:'“It’s leviOsa, not levioSA!”';
+	--phrase6:'“It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.”';
+	--phrase7:'“It is our choices, Harry, that show what we truly are, far more than our abilities.”';
+	--phrase8:'“Call him Voldemort, Harry. Always use the proper name for things. Fear of a name increases fear of the thing itself.”';
+	--phrase9:'“Happiness can be found even in the darkest of times if one only remembers to turn on the light.”';
+	--phrase10:'“If you want to know what a man’s like, take a good look at how he treats his inferiors, not his equals.”';
+	
+	--phrase11:'“The mind is not a book, to be opened at will and examined at leisure. Thoughts are not etched on the inside of skulls, to be perused by any invader. The mind is a complex and many-layered thing, Potter.”';	
+	--phrase12:'“Dark times lie ahead of us and there will be a time when we must choose between what is easy and what is right”';
+	--phrase13:'“Just because you have the emotional range of a teaspoon doesn’t mean we all have.”';
+	--phrase14:'“We’ve all got both light and dark inside us. What matters is the part we choose to act on. That’s who we really are.”';
+	--phrase15:'“My mum always said things we lose have a way of coming back to us in the end. If not always in the way we expect.”';
+	--phrase16:'“Of course it is happening inside your head, Harry, but why on earth should that mean that it is not real?”';
+	--phrase17:'“And now, Harry, let us step out into the night and pursue that flighty temptress, adventure.”';
+	--phrase18:'“Understanding is the first step to acceptance, and only with acceptance can there be recovery.”';
+	--phrase19:'“What you fear most of all is – fear. Very wise.”';
+	
+	--phrase20:'“Help will always be given at Hogwarts to those who ask for it.”';
+	--phrase21:'“I am not worried, Harry,” said Dumbledore, his voice a little stronger despite the freezing water. “I am with you.”';
+	--phrase22:'“It is very curious indeed that you should be destined for this wand when its brother – why, its brother gave you that scar.”';
+	--phrase23:'“The Patronus is a kind of positive force, a projection of the very things that the Dementor feeds upon – hope, happiness, the desire to survive – but it cannot feel despair, as real humans can, so the Dementors can’t hurt it. ”';
+	--phrase24:'“Don’t count your owls before they are delivered.”';
+	--phrase25:'“Harry, please. You’re talking to the man who raised Fred and George.”';
+	--phrase26:'“Because you and he are connected by the curse that failed,” said Dumbledore. “That is no ordinary scar.”';
+	--phrase27:'“We are only as strong as we are united, as weak as we are divided.”';
+	--phrase28:'“Of course, it would be difficult. And dangerous, very dangerous. We’d be breaking about fifty school rules, I expect.”';
+	--phrase29:'“Let’s make it stand for Dumbledore’s Army, because that’s the Ministry’s worst fear, isn’t it?”';
+	
+	--phrase30:'“I want to be properly trained in defence because … because ...” she took a great breath and finished, “because Lord Voldemort is back.”';
+	--phrase31:'“I hope you’re pleased with yourselves. We could all have been killed - or worse, expelled. Now, if you don’t mind, I’m going to bed.”';
+	--phrase32:'“If he doesn’t stop trying to save your life he’s going to kill you.”';
+	--phrase33:'“It matters not what someone is born, but what they grow to be!”';
+	--phrase34:'“Welcome,” said Hagrid, “to Diagon Alley.”';
+	--phrase35:'“The only people who can see Thestrals,” she said, “are people who have seen death.”';
+	--phrase36:'“I don’t go looking for trouble,” said Harry nettled. “Trouble usually finds me.”';
+	--phrase37:'“It does not to do to dwell on dreams and forget to live.”';
+	--phrase38:'“Don’t let the Muggles get you down!”';
+	--phrase39:'“You’re less like your father than I thought,” he said finally, a definite coolness in his voice. “The risk would’ve been what made it fun for James.”';
+	
+	--phrase40:'“Well, times like that bring out the best in some people, and the worst in others.”';
+	--phrase41:'“The truth.” Dumbledore sighed. “It is a beautiful and terrible thing, and should therefore be treated with great caution.”';
+	--phrase42:'“After all, to the well-organized mind, death is but the next great adventure.”';
+	--phrase43:'“You need your friends, Harry.”';
+	--phrase44:'“How extraordinarily like your father you are, Potter” Snape said suddenly, his eyes glinting. “He too, was exceedingly arrogant.”';
+	--phrase45:'“Hearing voices no one else can hear isn’t a good sign, even in the wizarding world.”';
+	--phrase46:'“Don’t worry. You’re just as sane as I am”';
+	--phrase47:'“Severus … please …” Snape raised his wand and pointed it directly at Dumbledore. “Avada Kedavra!”';
+	--phrase48:'“Look...at...me...” he whispered. The green eyes found the black, but after a second, something in the depths of the dark pair seemed to vanish, leaving them fixed, blank, and empty. The hand holding Harry thudded to the floor, and Snape moved no more.';
+	--phrase49:'“Albus Severus, you were named for two headmasters of Hogwarts. One of them was a Slytherin and he was probably the bravest man I ever knew.”';
+	--phrase50:'“Mischief Managed.”';
+	
+	animation: fixedPhrase 5s ease 1, phrases 500s ease 5s infinite;
+	animation-play-state:paused, paused;
+}
+
+footer .logo:hover:before{
+	text-shadow: 0 0 10px var(--patronus_out),
+				 0 -1px 10px var(--patronus_out),
+				 0 1px 10px var(--patronus_out);
+	animation-play-state:running, running;
+}
+@keyframes fixedPhrase{
+	0%{content:'“After all this time?” “Always.”'; opacity:1; padding: 0 421px;}
+	100%{content:'“After all this time?” “Always.”'; opacity:0; padding: 0 421px;}
+}
+
+@keyframes phrases{
+	0%, 2%{content:var(--phrase1); opacity:0;padding: 0 0px;}
+	0.2%, 1.8%{content:var(--phrase1); opacity:1; padding: 0 0px;}
+	
+	2.01%, 4%{content:var(--phrase2); opacity:0;padding: 0 200px;}
+	2.2%, 3.8%{content:var(--phrase2); opacity:1;padding: 0 200px;}
+	
+	4.01%, 6%{content:var(--phrase3); opacity:0;padding: 0 0px;}
+	4.2%, 5.8%{content:var(--phrase3); opacity:1;padding: 0 0px;}
+	
+	6.01%, 8%{content:var(--phrase4); opacity:0;padding: 0 0px;}
+	6.2%, 7.8%{content:var(--phrase4); opacity:1;padding: 0 0px;}
+	
+	8.01%, 10%{content:var(--phrase5); opacity:0;padding: 0 0px;}
+	8.2%, 9.8%{content:var(--phrase5); opacity:1;padding: 0 0px;}
+	
+	10.01%, 12%{content:var(--phrase6); opacity:0; padding: 0 275px;}
+	10.2%, 11.8%{content:var(--phrase6); opacity:1;padding: 0 275px;}
+	
+	12.01%, 14%{content:var(--phrase7); opacity:0;padding: 0 0px;}
+	12.2%, 13.8%{content:var(--phrase7); opacity:1;padding: 0 0px;}
+	
+	14.01%, 16%{content:var(--phrase8); opacity:0; padding: 0 225px;}
+	14.2%, 15.8%{content:var(--phrase8); opacity:1;padding: 0 225px;}
+	
+	16.01%, 18%{content:var(--phrase9); opacity:0;padding: 0 0px;}
+	16.2%, 17.8%{content:var(--phrase9); opacity:1;padding: 0 0px;}
+	
+	18.01%, 20%{content:var(--phrase10); opacity:0;padding: 0 275px;}
+	18.2%, 19.8%{content:var(--phrase10); opacity:1;padding: 0 275px;}
+	
+	20.01%, 22%{content:var(--phrase11); opacity:0;padding: 0 0px;}
+	20.2%, 21.8%{content:var(--phrase11); opacity:1;padding: 0 0px;}
+	
+	22.01%, 24%{content:var(--phrase12); opacity:0;padding: 0 250px;}
+	22.2%, 23.8%{content:var(--phrase12); opacity:1;padding: 0 250px;}
+	
+	24.01%, 26%{content:var(--phrase13); opacity:0;padding: 0 0px;}
+	24.2%, 25.8%{content:var(--phrase13); opacity:1;padding: 0 0px;}
+	
+	26.01%, 28%{content:var(--phrase14); opacity:0;padding: 0 250px;}
+	26.2%, 27.8%{content:var(--phrase14); opacity:1;padding: 0 250px;}
+	
+	28.01%, 30%{content:var(--phrase15); opacity:0;padding: 0 250px;}
+	28.2%, 29.8%{content:var(--phrase15); opacity:1;padding: 0 250px;}
+	
+	30.01%, 32%{content:var(--phrase16); opacity:0;padding: 0 275px;}
+	30.2%, 31.8%{content:var(--phrase16); opacity:1;padding: 0 275px;}
+	
+	32.01%, 34%{content:var(--phrase17); opacity:0;padding: 0 0px;}
+	32.2%, 33.8%{content:var(--phrase17); opacity:1;padding: 0 0px;}
+	
+	34.01%, 36%{content:var(--phrase18); opacity:0;padding: 0 0px;}
+	34.2%, 35.8%{content:var(--phrase18); opacity:1;padding: 0 0px;}
+	
+	36.01%, 38%{content:var(--phrase19); opacity:0;padding: 0 0px;}
+	36.2%, 37.8%{content:var(--phrase19); opacity:1;padding: 0 0px;}
+	
+	38.01%, 40%{content:var(--phrase20); opacity:0;padding: 0 0px;}
+	38.2%, 39.8%{content:var(--phrase20); opacity:1;padding: 0 0px;}
+	
+	40.01%, 42%{content:var(--phrase21); opacity:0;padding: 0 250px;}
+	40.2%, 41.8%{content:var(--phrase21); opacity:1;padding: 0 250px;}
+	
+	42.01%, 44%{content:var(--phrase22); opacity:0;padding: 0 225px;}
+	42.2%, 43.8%{content:var(--phrase22); opacity:1;padding: 0 225px;}
+	
+	44.01%, 46%{content:var(--phrase23); opacity:0; padding: 0 150px;padding-bottom: 20px;}
+	44.2%, 45.8%{content:var(--phrase23); opacity:1;padding: 0 150px;padding-bottom: 20px;}
+	
+	46.01%, 48%{content:var(--phrase24); opacity:0;padding: 0 0px;}
+	46.2%, 47.8%{content:var(--phrase24); opacity:1;padding: 0 0px;}
+	
+	48.01%, 50%{content:var(--phrase25); opacity:0;padding: 0 0px;}
+	48.2%, 49.8%{content:var(--phrase25); opacity:1;padding: 0 0px;}
+	
+	50.01%, 52%{content:var(--phrase26); opacity:0;padding: 0 275px;}
+	50.2%, 51.8%{content:var(--phrase26); opacity:1;padding: 0 275px;}
+	
+	52.01%, 54%{content:var(--phrase27); opacity:0;padding: 0 0px;}
+	52.2%, 53.8%{content:var(--phrase27); opacity:1;padding: 0 0px;}
+	
+	54.01%, 56%{content:var(--phrase28); opacity:0;padding: 0 225px;}
+	54.2%, 55.8%{content:var(--phrase28); opacity:1;padding: 0 225px;}
+	
+	56.01%, 58%{content:var(--phrase29); opacity:0;padding: 0 0px;}
+	56.2%, 57.8%{content:var(--phrase29); opacity:1;padding: 0 0px;}
+	
+	58.01%, 60%{content:var(--phrase30); opacity:0;padding: 0 200px;}
+	58.2%, 59.8%{content:var(--phrase30); opacity:1;padding: 0 200px;}
+	
+	60.01%, 62%{content:var(--phrase31); opacity:0;padding: 0 200px;}
+	60.2%, 61.8%{content:var(--phrase31); opacity:1;padding: 0 200px;}
+	
+	62.01%, 64%{content:var(--phrase32); opacity:0;padding: 0 0px;}
+	62.2%, 63.8%{content:var(--phrase32); opacity:1;padding: 0 0px;}
+	
+	64.01%, 66%{content:var(--phrase33); opacity:0;padding: 0 0px;}
+	64.2%, 65.8%{content:var(--phrase33); opacity:1;padding: 0 0px;}
+	
+	66.01%, 68%{content:var(--phrase34); opacity:0;padding: 0 0px;}
+	66.2%, 67.8%{content:var(--phrase34); opacity:1;padding: 0 0px;}
+
+	68.01%, 70%{content:var(--phrase35); opacity:0;padding: 0 0px;}
+	68.2%, 69.8%{content:var(--phrase35); opacity:1;padding: 0 0px;}
+	
+	70.01%, 72%{content:var(--phrase36); opacity:0;padding: 0 0px;}
+	70.2%, 71.8%{content:var(--phrase36); opacity:1;padding: 0 0px;}
+	
+	72.01%, 74%{content:var(--phrase37); opacity:0;padding: 0 0px;}
+	72.2%, 73.8%{content:var(--phrase37); opacity:1;padding: 0 0px;}
+	
+	74.01%, 76%{content:var(--phrase38); opacity:0;padding: 0 0px;}
+	74.2%, 75.8%{content:var(--phrase38); opacity:1;padding: 0 0px;}
+	
+	76.01%, 78%{content:var(--phrase39); opacity:0;padding: 0 140px;}
+	76.2%, 77.8%{content:var(--phrase39); opacity:1;padding: 0 140px;}
+	
+	78.01%, 80%{content:var(--phrase40); opacity:0;padding: 0 0px;}
+	78.2%, 79.8%{content:var(--phrase40); opacity:1;padding: 0 0px;}	
+	
+	80.01%, 82%{content:var(--phrase41); opacity:0;padding: 0 220px;}
+	80.2%, 81.8%{content:var(--phrase41); opacity:1;padding: 0 220px;}
+	
+	82.01%, 84%{content:var(--phrase42); opacity:0;padding: 0 0px;}
+	82.2%, 83.8%{content:var(--phrase42); opacity:1;padding: 0 0px;}
+	
+	84.01%, 86%{content:var(--phrase43); opacity:0;padding: 0 0px;}
+	84.2%, 85.8%{content:var(--phrase43); opacity:1;padding: 0 0px;}
+	
+	86.01%, 88%{content:var(--phrase44); opacity:0;padding: 0 220px;}
+	86.2%, 87.8%{content:var(--phrase44); opacity:1;padding: 0 220px;}
+	
+	88.01%, 90%{content:var(--phrase45); opacity:0;padding: 0 0px;}
+	88.2%, 89.8%{content:var(--phrase45); opacity:1;padding: 0 0px;}
+	
+	90.01%, 92%{content:var(--phrase46); opacity:0;padding: 0 0px;}
+	90.2%, 91.8%{content:var(--phrase46); opacity:1;padding: 0 0px;}
+	
+	92.01%, 94%{content:var(--phrase47); opacity:0;padding: 0 0px;}
+	92.2%, 93.8%{content:var(--phrase47); opacity:1;padding: 0 0px;}
+	
+	94.01%, 96%{content:var(--phrase48); opacity:0;padding: 0 100px;padding-bottom: 20px;}
+	94.2%, 95.8%{content:var(--phrase48); opacity:1;padding: 0 100px;padding-bottom: 20px;}
+	
+	96.01%, 98%{content:var(--phrase49); opacity:0;padding: 0 175px;}
+	96.2%, 97.8%{content:var(--phrase49); opacity:1;padding: 0 175px;}
+	
+	98.01%, 100%{content:var(--phrase50); opacity:0;padding: 0 0px;}
+	98.2%, 99.8%{content:var(--phrase50); opacity:1;padding: 0 0px;}
+}
+
+footer .logo:after{ /*Personagens */
+	display:flex; justify-content: flex-end; align-items:center; position:absolute;
+	top: -30px; left: calc(50% - 400px);
+	height:20px; width: 800px;
+	content: "";
+	text-align:right;
+	color:var(--patronus_in);
+	z-index:2;
+	font-family: var(--handWrite2); font-size: 20px;font-variant:small-caps;
+	
+	--quote1: 'Harry Potter in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote2:'Albus Dumbledore in Harry Potter and the Deathly Hallows, J.K. Rowling';
+	--quote3:'Severus Snape in Harry Potter and the Philosopher’s Stone, J.K. Rowling';
+	--quote4:'Albus Dumbledore in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote5:'Hermione Granger in Harry Potter and the Philosopher’s Stone, J.K. Rowling';
+	--quote6:'Albus Dumbledore in Harry Potter and the Philosopher’s Stone , J.K. Rowling';
+	--quote7:'Albus Dumbledore in Harry Potter and the Chamber of Secrets, J.K. Rowling';
+	--quote8:'Albus Dumbledore in Harry Potter and the Philosopher’s Stone , J.K. Rowling';
+	--quote9:'Albus Dumbledore in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote10:'Sirius Black in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	
+	--quote11:'Severus Snape in Harry Potter and the Order of the Phoenix, J.K. Rowling';	
+	--quote12:'Albus Dumbledore in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote13:'Hermione Granger in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote14:'Sirius Black in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote15:'Luna Lovegood in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote16:'Albus Dumbledore in Harry Potter and the Deathly Hallows, J.K. Rowling';
+	--quote17:'Albus Dumbledore in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote18:'Albus Dumbledore in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote19:'Remus Lupin in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	
+	--quote20:'Albus Dumbledore in Harry Potter and the Chamber of Secrets, J.K. Rowling';
+	--quote21:'Albus Dumbledore in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote22:'Mr Ollivander in Harry Potter and the Philosopher’s Stone, J.K. Rowling';
+	--quote23:'Remus Lupin in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote24:'Albus Dumbledore in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote25:'Arthur Weasley in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote26:'Albus Dumbledore in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote27:'Albus Dumbledore in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote28:'Hermione Granger in Harry Potter and the Chamber of Secrets, J.K. Rowling';
+	--quote29:'Ginny Weasley in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	
+	--quote30:'Hermione Granger in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote31:'Hermione Granger in Harry Potter and the Philosopher’s Stone, J.K. Rowling';
+	--quote32:'Ron Weasley in Harry Potter and the Chamber of Secrets, J.K. Rowling';
+	--quote33:'Albus Dumbledore in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote34:'Rubeus Hagrid in Harry Potter and the Philosopher’s Stone, J.K. Rowling';
+	--quote35:'Hermione Granger in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote36:'Harry Potter in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote37:'Albus Dumbledore in Harry Potter and the Philosopher’s Stone , J.K. Rowling';
+	--quote38:'Ron Weasley in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote39:'Sirius Black in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	
+	--quote40:'Sirius Black in Harry Potter and the Goblet of Fire, J.K. Rowling';
+	--quote41:'Albus Dumbledore in Harry Potter and the Philosopher’s Stone , J.K. Rowling';
+	--quote42:'Albus Dumbledore in Harry Potter and the Philosopher’s Stone , J.K. Rowling';
+	--quote43:'Albus Dumbledore in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote44:'Severus Snape in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	--quote45:'Ron Weasley in Harry Potter and the Chamber of Secrets, J.K. Rowling';
+	--quote46:'Luna Lovegood in Harry Potter and the Order of the Phoenix, J.K. Rowling';
+	--quote47:'Albus Dumbledore and Severus Snape in Harry Potter and the Half-Blood Prince, J.K. Rowling';
+	--quote48:'Severus Snape in Harry Potter and the Deathly Hallows, J.K. Rowling';
+	--quote49:'Harry Potter in Harry Potter and the Deathly Hallows, J.K. Rowling';
+	--quote50:'Harry Potter in Harry Potter and the Prisoner of Azkaban, J.K. Rowling';
+	
+	
+	animation: fixedQuote 5s ease 1, quotes 500s ease 5s infinite;
+	animation-play-state:paused, paused;
+	transition: all 1s ease;
+}
+
+footer .logo:hover:after{
+	animation-play-state:running, running;
+}
+
+@keyframes fixedQuote{
+	0%{content:'Albus Dumbledore and Severus Snape in Harry Potter and the Deathly Hallows, J.K. Rowling'; opacity:1; transform: translateY(-10px);}
+	100%{content:'Albus Dumbledore and Severus Snape in Harry Potter and the Deathly Hallows, J.K. Rowling'; opacity:0; transform: translateY(-10px);}
+}
+
+@keyframes quotes{
+	0%, 2%{content:var(--quote1); opacity:0; transform: translateY(-30px);}
+	0.2%, 1.8%{content:var(--quote1); opacity:1; transform: translateY(-30px);}
+	
+	2.01%, 4%{content:var(--quote2); opacity:0;transform: translateY(-10px);}
+	2.2%, 3.8%{content:var(--quote2); opacity:1;transform: translateY(-10px);}
+	
+	4.01%, 6%{content:var(--quote3); opacity:0; transform: translateY(-30px); }
+	4.2%, 5.8%{content:var(--quote3); opacity:1; transform: translateY(-30px); }
+	
+	6.01%, 8%{content:var(--quote4); opacity:0; transform: translateY(-30px); }
+	6.2%, 7.8%{content:var(--quote4); opacity:1; transform: translateY(-30px); }
+	
+	8.01%, 10%{content:var(--quote5); opacity:0; transform: translateY(-30px); }
+	8.2%, 9.8%{content:var(--quote5); opacity:1; transform: translateY(-30px); }
+	
+	10.01%, 12%{content:var(--quote6); opacity:0; transform: translateY(-10px);}
+	10.2%, 11.8%{content:var(--quote6); opacity:1; transform: translateY(-10px);}
+	
+	12.01%, 14%{content:var(--quote7); opacity:0; transform: translateY(-30px); }
+	12.2%, 13.8%{content:var(--quote7); opacity:1; transform: translateY(-30px); }
+	
+	14.01%, 16%{content:var(--quote8); opacity:0; transform: translateY(-10px); }
+	14.2%, 15.8%{content:var(--quote8); opacity:1; transform: translateY(-10px);}
+	
+	16.01%, 18%{content:var(--quote9); opacity:0; transform: translateY(-30px); }
+	16.2%, 17.8%{content:var(--quote9); opacity:1; transform: translateY(-30px); }
+	
+	18.01%, 20%{content:var(--quote10); opacity:0; transform: translateY(-10px);}
+	18.2%, 19.8%{content:var(--quote10); opacity:1; transform: translateY(-10px);}
+	
+	20.01%, 22%{content:var(--quote11); opacity:0; transform: translateY(-10px); }
+	20.2%, 21.8%{content:var(--quote11); opacity:1; transform: translateY(-10px); }
+	
+	22.01%, 24%{content:var(--quote12); opacity:0; transform: translateY(-10px);}
+	22.2%, 23.8%{content:var(--quote12); opacity:1; transform: translateY(-10px);}
+	
+	24.01%, 26%{content:var(--quote13); opacity:0; transform: translateY(-30px); }
+	24.2%, 25.8%{content:var(--quote13); opacity:1; transform: translateY(-30px); }
+	
+	26.01%, 28%{content:var(--quote14); opacity:0; transform: translateY(-10px);}
+	26.2%, 27.8%{content:var(--quote14); opacity:1; transform: translateY(-10px);}
+	
+	28.01%, 30%{content:var(--quote15); opacity:0; transform: translateY(-10px); }
+	28.2%, 29.8%{content:var(--quote15); opacity:1; transform: translateY(-10px); }
+	
+	30.01%, 32%{content:var(--quote16); opacity:0; transform: translateY(-10px);}
+	30.2%, 31.8%{content:var(--quote16); opacity:1; transform: translateY(-10px);}
+	
+	32.01%, 34%{content:var(--quote17); opacity:0; transform: translateY(-30px); }
+	32.2%, 33.8%{content:var(--quote17); opacity:1; transform: translateY(-30px); }
+	
+	34.01%, 36%{content:var(--quote18); opacity:0; transform: translateY(-30px); }
+	34.2%, 35.8%{content:var(--quote18); opacity:1; transform: translateY(-30px); }
+	
+	36.01%, 38%{content:var(--quote19); opacity:0; transform: translateY(-30px); }
+	36.2%, 37.8%{content:var(--quote19); opacity:1; transform: translateY(-30px); }
+	
+	38.01%, 40%{content:var(--quote20); opacity:0; transform: translateY(-30px); }
+	38.2%, 39.8%{content:var(--quote20); opacity:1; transform: translateY(-30px); }
+	
+	40.01%, 42%{content:var(--quote21); opacity:0; transform: translateY(-10px);}
+	40.2%, 41.8%{content:var(--quote21); opacity:1; transform: translateY(-10px);}
+	
+	42.01%, 44%{content:var(--quote22); opacity:0; transform: translateY(-10px);}
+	42.2%, 43.8%{content:var(--quote22); opacity:1; transform: translateY(-10px);}
+	
+	44.01%, 46%{content:var(--quote23); opacity:0; transform: translateY(0px); }
+	44.2%, 45.8%{content:var(--quote23); opacity:1; transform: translateY(0px);}
+	
+	46.01%, 48%{content:var(--quote24); opacity:0; transform: translateY(-30px); }
+	46.2%, 47.8%{content:var(--quote24); opacity:1; transform: translateY(-30px); }
+	
+	48.01%, 50%{content:var(--quote25); opacity:0; transform: translateY(-30px); }
+	48.2%, 49.8%{content:var(--quote25); opacity:1; transform: translateY(-30px); }
+	
+	50.01%, 52%{content:var(--quote26); opacity:0; transform: translateY(-10px);}
+	50.2%, 51.8%{content:var(--quote26); opacity:1; transform: translateY(-10px);}
+	
+	52.01%, 54%{content:var(--quote27); opacity:0; transform: translateY(-30px); }
+	52.2%, 53.8%{content:var(--quote27); opacity:1; transform: translateY(-30px); }
+	
+	54.01%, 56%{content:var(--quote28); opacity:0; transform: translateY(-10px);}
+	54.2%, 55.8%{content:var(--quote28); opacity:1; transform: translateY(-10px);}
+	
+	56.01%, 58%{content:var(--quote29); opacity:0; transform: translateY(-30px); }
+	56.2%, 57.8%{content:var(--quote29); opacity:1; transform: translateY(-30px); }
+	
+	58.01%, 60%{content:var(--quote30); opacity:0; transform: translateY(-10px);}
+	58.2%, 59.8%{content:var(--quote30); opacity:1; transform: translateY(-10px);}
+	
+	60.01%, 62%{content:var(--quote31); opacity:0; transform: translateY(-10px);}
+	60.2%, 61.8%{content:var(--quote31); opacity:1; transform: translateY(-10px);}
+	
+	62.01%, 64%{content:var(--quote32); opacity:0; transform: translateY(-30px); }
+	62.2%, 63.8%{content:var(--quote32); opacity:1; transform: translateY(-30px); }
+	
+	64.01%, 66%{content:var(--quote33); opacity:0; transform: translateY(-30px); }
+	64.2%, 65.8%{content:var(--quote33); opacity:1; transform: translateY(-30px); }
+	
+	66.01%, 68%{content:var(--quote34); opacity:0; transform: translateY(-30px); }
+	66.2%, 67.8%{content:var(--quote34); opacity:1; transform: translateY(-30px); }
+
+	68.01%, 70%{content:var(--quote35); opacity:0; transform: translateY(-30px); }
+	68.2%, 69.8%{content:var(--quote35); opacity:1; transform: translateY(-30px); }
+	
+	70.01%, 72%{content:var(--quote36); opacity:0; transform: translateY(-30px); }
+	70.2%, 71.8%{content:var(--quote36); opacity:1; transform: translateY(-30px); }
+	
+	72.01%, 74%{content:var(--quote37); opacity:0; transform: translateY(-30px); }
+	72.2%, 73.8%{content:var(--quote37); opacity:1; transform: translateY(-30px); }
+	
+	74.01%, 76%{content:var(--quote38); opacity:0; transform: translateY(-30px); }
+	74.2%, 75.8%{content:var(--quote38); opacity:1; transform: translateY(-30px); }
+	
+	76.01%, 78%{content:var(--quote39); opacity:0; transform: translateY(-10px);}
+	76.2%, 77.8%{content:var(--quote39); opacity:1; transform: translateY(-10px);}
+	
+	78.01%, 80%{content:var(--quote40); opacity:0; transform: translateY(-30px); }
+	78.2%, 79.8%{content:var(--quote40); opacity:1; transform: translateY(-30px); }	
+	
+	80.01%, 82%{content:var(--quote41); opacity:0; transform: translateY(-10px);}
+	80.2%, 81.8%{content:var(--quote41); opacity:1; transform: translateY(-10px);}
+	
+	82.01%, 84%{content:var(--quote42); opacity:0; transform: translateY(-30px); }
+	82.2%, 83.8%{content:var(--quote42); opacity:1; transform: translateY(-30px); }
+	
+	84.01%, 86%{content:var(--quote43); opacity:0; transform: translateY(-30px); }
+	84.2%, 85.8%{content:var(--quote43); opacity:1; transform: translateY(-30px); }
+	
+	86.01%, 88%{content:var(--quote44); opacity:0; transform: translateY(-10px);}
+	86.2%, 87.8%{content:var(--quote44); opacity:1; transform: translateY(-10px);}
+	
+	88.01%, 90%{content:var(--quote45); opacity:0; transform: translateY(-30px); }
+	88.2%, 89.8%{content:var(--quote45); opacity:1; transform: translateY(-30px); }
+	
+	90.01%, 92%{content:var(--quote46); opacity:0; transform: translateY(-30px); }
+	90.2%, 91.8%{content:var(--quote46); opacity:1; transform: translateY(-30px); }
+	
+	92.01%, 94%{content:var(--quote47); opacity:0; transform: translateY(-30px); }
+	92.2%, 93.8%{content:var(--quote47); opacity:1; transform: translateY(-30px); }
+	
+	94.01%, 96%{content:var(--quote48); opacity:0; transform: translateY(0px);}
+	94.2%, 95.8%{content:var(--quote48); opacity:1; transform: translateY(0px);}
+	
+	96.01%, 98%{content:var(--quote49); opacity:0; transform: translateY(-10px);}
+	96.2%, 97.8%{content:var(--quote49); opacity:1; transform: translateY(-10px);}
+	
+	98.01%, 100%{content:var(--quote50); opacity:0; transform: translateY(-30px); }
+	98.2%, 99.8%{content:var(--quote50); opacity:1; transform: translateY(-30px); }
+	
+}
+
+
+/*========== MOBILE ===================================================*/
+
+
+@media only screen and (max-width: 767px) {
+	footer{
+		position:relative;
+	}
+	/*---------- ORNAMENTOS -----------------------------------------------*/
+	footer:before{
+		display:none;
+	}
+	/*---------- TEXTO ----------------------------------------------------*/
+	footer .logo:before{/*Frases*/
+		display:none
+		}
+	footer .logo:after{ /*Personagens */
+		display:none
+	}
+
+}

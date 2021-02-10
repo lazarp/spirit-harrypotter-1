@@ -1,0 +1,590 @@
+/*Código modularizado da parte nav e secaonav
+ * Autor: Pedro Lázaro
+ * */
+
+/*TABLE OF CONTENTS
+ * nav
+ * 		ul
+ * 			a
+ * 		li.borda
+ * 		li
+ * 		a
+ * 		li a
+ * 			before
+ * 			after
+ * 		ul.dropdown-menu
+ * 		.btn
+ * 			span
+ * secaonav
+ * 		a
+ * 		span
+ * 		li
+ */
+
+/*========== NAV ======================================================*/
+#nav {
+	position:absolute;
+	top:-20px;left:-10%;right:-10%;
+	margin:0 auto; 
+	width: auto;height:100px;
+	border-radius: 00px!important;
+	display:flex;align-items:center;
+	z-index:-2;
+/*
+	outline: orange solid 1px;
+*/
+}
+#nav:before{ /*borda esquerda da vassoura*/
+	display:block;position:absolute;content:"";
+	bottom:0;left:10%;right:calc(50% + 60px);
+	height:1px;width:auto;
+	border-bottom:1px solid var(--patronus_core);
+}
+#nav:after{/*borda direita da vassoura*/
+	display:block;position:absolute;content:"";
+	bottom:0;right:10%;left:calc(50% + 60px);
+	height:1px;width:auto;
+	border-bottom:1px solid var(--patronus_core);
+}
+#nav>ul{
+	position:relative;
+	display: flex;
+		align-items: center!important;
+		justify-content: space-between;
+	z-index:-2;
+	width:100%;
+	max-width:2000px;
+	margin:0px;
+}
+#nav ul:before{ /*vassoura*/
+	display:block;position:absolute;content:"";
+	top:calc(100% + 20px); left:calc(50% - 50px);
+	height:30px;width:100px;
+	background:url(https://dl.dropboxusercontent.com/s/bfbzpwhyv84vdu3/fireboltLOW.png) no-repeat;
+	background-size:contain;background-position:center center;
+	transform:rotate(-10deg);
+	transition: all 1s ease;
+}
+#nav:hover ul:before{
+	filter: drop-shadow(0 0 1px black) drop-shadow(0 0 3px var(--patronus_out));
+}
+
+#nav>ul>li.borda{
+	display:none;
+	padding: 1px;
+	width:0px;
+	background-color: white;
+}
+
+#nav>ul>li{
+	position:relative;
+	display:flex;
+	z-index:-1;
+	
+	padding:0px!important;
+	min-width: 1px;	/*RESOLVI O PROBLEMA DA TAG PORRA*/
+}
+
+#nav>ul>li:before{ /*segmentos que se estendem*/
+	display:block;
+	position:absolute;
+	content:"";
+	top:0;
+	bottom:0;
+	height:auto;
+	width:auto;
+	left: 50%;
+	right: 50%;
+	border-top: 1px solid var(--patronus_core);
+	border-bottom: 1px solid var(--patronus_core);
+	transition: all 1s;
+}
+#nav:hover > ul>li:before{
+	left:-5px;
+	right:-5px;
+	
+	box-shadow: inset 0px 0px 7px 0px var(--patronus_in), 0px 0px 7px 0px var(--patronus_out);
+	transition: all 1s;
+}
+#nav>ul>li:after{ /*segmentos que se estendem*/
+	display:block;
+	position:absolute;
+	content:"";
+	top:50%;
+	bottom:50%;
+	height:auto;
+	width:auto;
+	left: 0;
+	right: 0;
+	border-left: 1px solid var(--patronus_core);
+	border-right: 1px solid var(--patronus_core);
+	transition: all 1s;
+}
+#nav:hover > ul>li:after{
+	top: -5px;
+	bottom: -5px;
+	
+	box-shadow: inset 0px 0px 7px 0px var(--patronus_in), 0px 0px 7px 0px var(--patronus_out);
+	transition: all 1s;
+}
+
+/* ---- hover customizado dos botoes da nav ----*/
+#nav li a{
+
+	position:relative;
+	
+	font-size: 13px !important;
+	font-size-adjust: 0.50;
+	font-weight:100;
+	font-family:var(--font_main)!important;
+	color:var(--color_main);
+	text-transform: lowercase !important;
+	font-variant:small-caps!important;
+	
+	border-radius:0px!important; /*afetar o botão adicionar*/
+	outline: transparent solid 1px;
+	padding: 5px 10px!important;
+	z-index:1;
+/*
+	border: 1px solid white;
+*/
+	transition: all 1s, outline 0s;
+}
+	
+#nav li a:after{ /*segmentos que completam*/
+	content:"";
+	position: absolute;
+	display:block;
+	top: -5px;
+	bottom: -5px;
+	left:50%;
+	right:50%;
+	height:auto;
+	width:auto;
+	border-top: 1px solid var(--patronus_core);
+	border-bottom: 1px solid var(--patronus_core);
+	transition: all 1s;
+/*
+	top: 50%;
+	left:0;
+	width:100%!important;
+	height:20%;
+	border-radius: 100px;
+	transform: rotate(990deg) scale(0.1);
+
+	transition: transform 1s ease, box-shadow .5s ease, border-radius 1s ease, height 1s ease, top 1s ease;
+*/
+
+}
+#nav:hover>ul>li a:after{ /*segmentos que completam*/
+	left: 0%;
+	right: 0%;
+	
+	transition: all 1s;
+/*
+	top:0;
+	transform: rotate(0deg) scale(1);
+	height:100%;
+	border-radius:0px;
+	box-shadow: inset 0px 0px 15px 2px var(--color_destaque);
+	transition: transform 2s ease-out, box-shadow 1s ease, border-radius 1s ease-out 1s, height 2s ease, top 2s ease;
+*/
+}
+
+#nav li a:before{ /*segmentos que completam*/
+	display:block;
+	content: "";
+  	position: absolute;
+  	top:50%;
+  	bottom:50%;
+  	left: -5px;
+  	right:-5px;
+  	height: auto;
+  	width: auto;
+  	border-left: 1px solid var(--patronus_core);
+  	border-right: 1px solid var(--patronus_core);
+  	transition: all 1s; 
+/*
+  	top:50%;
+  	left:0;
+	width:100%;
+	height:20%;
+	border-radius:100px;
+  	transform: rotate(-990deg) scale(0.1);
+
+  	transition: transform 1s ease, box-shadow .5s ease, border-radius 1s ease, height 1s ease, top 1s ease;
+*/
+}	
+#nav:hover>ul>li a:before{
+	top: 0%;
+	bottom: 0%;
+	
+	transition: all 1s;
+/*
+	border-radius:0px;
+	top:0;
+	height:100%;
+	transform: rotate(0deg) scale(1);
+	box-shadow: inset 0px 0px 15px 2px var(--color_destaque);
+	transition: transform 2s ease-out, box-shadow 1s ease, border-radius 1s ease-out 1s, height 2s ease, top 2s ease;	
+*/
+}
+/*---------- Selecao de um item ---------------------------------------*/
+
+#nav ul>li:hover:after{
+	top:50%;
+	bottom:50%;
+	box-shadow: inset 0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent;
+	transition: all 1s;
+}
+#nav ul>li:hover:before{
+	left:50%;
+	right:50%;
+	box-shadow: inset 0px 0px 0px 0px transparent, 0px 0px 0px 0px transparent;
+	transition: all 1s;
+}
+#nav ul>li:hover > a:before{
+	top:50%;
+	bottom:50%;
+	transition: all 1s;
+}
+#nav ul>li:hover > a:after{
+	left:50%;
+	right:50%;
+	transition: all 1s;
+}
+
+#nav ul>li:hover > a{
+	outline: black solid 1px;
+	background: var(--patronus_core);
+	color:black!important;
+	transition: all 1s;
+}
+
+/*---------- MENU DROPDOWN --------------------------------------------*/
+
+#nav .dropdown-menu{ /*Detalhezinho do menu que aparece quando a pagina é comprimida*/
+	outline:white solid 1px;
+	box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+	background:var(--vidro_fume);
+	color:white;	
+}
+#nav .dropdown-menu li, #nav .dropdown-menu li a{ transition: all 1s ease;}
+#nav .dropdown-menu li:hover{
+	background: white;
+}
+#nav .dropdown-menu li:hover a{
+	color:black;
+}
+
+/*BOTÃO ADICIONAR -----------------------------------------------------*/
+/* Botão Adicionar É O LAST CHILD DO NAV       */
+
+#nav>ul>li.last{
+	
+}
+
+#nav .btn { 
+	background: transparent;
+	border-style:none;
+}
+
+#nav .btn span{ /*estritamente a palavra adicionar. Não inclui o simbolo +*/
+	color: white!important;	
+	transition: all 1s;
+}
+#nav .btn i{
+	margin-left: 4px;
+	margin-right:4px;
+}
+#nav .btn span:hover{
+	
+}
+#nav .btn:hover > span{
+	color:black!important;
+	transition: all 1s;
+}
+/*----------NAV MOBILE ------------------------------------------------*/
+
+@media only screen and (max-width: 767px){
+	#nav {
+		position:absolute;
+		top:0;
+		margin:0 auto;
+		border-radius: 00px!important;
+		
+		left:10px;
+		right:10px;
+		width: auto;
+		height:75px;
+		z-index:-2;
+	}
+	#nav:before{ /*borda esquerda da vassoura*/
+		display:none;
+	}
+	#nav:after{/*borda direita da vassoura*/
+		display:none;
+	}
+	#nav>ul{
+		position:relative;
+		display: flex;
+			align-items: center!important;
+			justify-content: space-between;
+		z-index:-2;
+		width:100%;
+		max-width:2000px;
+		margin:0px;
+	}
+	#nav ul:before{ /*vassoura*/
+		display:none;
+	}
+	
+	#nav>ul>li.borda{
+		display:none;
+		padding: 1px;
+		width:0px;
+		background-color: white;
+	}
+
+	#nav>ul>li{
+		position:relative;
+		display:flex;
+		z-index:-1;
+		
+		padding:0px!important;
+		min-width: 1px;	/*RESOLVI O PROBLEMA DA TAG PORRA*/
+	}
+
+	#nav>ul>li:before{ /*segmentos que se estendem*/
+		display:none;
+	}
+
+	#nav>ul>li:after{ /*segmentos que se estendem*/
+		display:none;
+	}
+
+	/* ---- hover customizado dos botoes da nav ----*/
+	#nav li a{
+
+		position:relative;
+		
+		font-size: 13px !important;
+		font-size-adjust: 0.50;
+		font-weight:100;
+		font-family:var(--font_main)!important;
+		color:var(--color_main);
+		text-transform: lowercase !important;
+		font-variant:small-caps!important;
+		
+		border-radius:0px!important; /*afetar o botão adicionar*/
+		outline: transparent solid 1px;
+		padding: 5px 10px!important;
+		z-index:1;
+	/*
+		border: 1px solid white;
+	*/
+		transition: all 1s, outline 0s;
+	}
+		
+	#nav li a:after{ /*segmentos que completam*/
+		display:none;
+	}
+
+	#nav li a:before{ /*segmentos que completam*/
+		display:none;
+	}	
+	/*---------- Selecao de um item ---------------------------------------*/
+
+	#nav ul>li:hover > a{
+		outline: white solid 1px;
+		background: var(--vidro_fume)!important;
+		color:white!important;
+		box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+		transition: all 1s;
+	}
+
+	/*---------- MENU DROPDOWN --------------------------------------------*/
+
+	#nav .dropdown-menu{ /*Detalhezinho do menu que aparece quando a pagina é comprimida*/
+		outline:white solid 1px;
+		box-shadow: 0 0 10px 2px var(--patronus_out), inset 0 0 10px 2px var(--patronus_in);
+		background:var(--vidro_fume);
+		color:white;	
+	}
+	#nav .dropdown-menu li, #nav .dropdown-menu li a{ transition: all 1s ease;}
+	#nav .dropdown-menu li:hover{
+		background: white;
+	}
+	#nav .dropdown-menu li:hover a{
+		color:black;
+	}
+
+	/*BOTÃO ADICIONAR -----------------------------------------------------*/
+	/* Botão Adicionar É O LAST CHILD DO NAV       */
+}
+/*========== SEÇÃO NAV ================================================*/
+
+#secaoNav{
+	text-align:left;
+	position: relative;
+	margin: 10px auto -40px auto!important;
+	height: 30px;
+	width:auto;
+	border-radius: 0;
+	padding:0px;
+	
+}
+/*---------- CALICE ---------------------------------------------------*/
+#secaoNav:before{ /*cálice*/
+	display:block;content:"";position:absolute;
+	top:-30px;left:calc(50% - 20px);
+	width:40px; height:40px;
+/*
+	outline:orange solid 1px;
+*/
+/*	CONFIGURAÇÃO ORIGINAL
+	top:-50%;
+	left:48.5%;
+	width:4%;
+	height:120%;
+	background-image:url('https://dl.dropboxusercontent.com/s/8mqc9vto0gx8r5s/goblet3.png'); background-repeat:no-repeat; background-size:contain;
+*/
+	background:url('https://dl.dropboxusercontent.com/s/10jkaew5iz8s79u/gobletLOW.png')no-repeat;
+	background-size:contain;background-position:center center;
+	
+	transition: all 1s ease;
+}
+
+#meio:hover > #secaoNav:before{
+	filter:	drop-shadow(0 0 1px black)
+			drop-shadow(0 0 3px var(--patronus_out));
+	transition: all 1s ease;
+}
+/*---------- FOGO -----------------------------------------------------*/
+#secaoNav:after{/*fogo*/
+	display:block;content:"";position:absolute;
+	top:-68px;left:calc(50% - 18px);
+	width:40px;height:40px;
+/*
+	width:4%;height:150%;
+*/
+/*
+	outline:red solid 1px;
+*/
+/*
+	background:	url(https://dl.dropboxusercontent.com/s/rtlvyeah3s7otwf/fire2.png) no-repeat;
+*/
+	background:	url(https://dl.dropboxusercontent.com/s/yrfizksts3l80vl/fire2LOW.png) no-repeat;
+/*
+	background:	url(https://dl.dropboxusercontent.com/s/q0oyule0ydhao9e/NEWfireLOW.png) no-repeat;
+*/
+	background-size:cover;
+	background-position:0%;	
+
+	transform: scale(0); 
+/*
+	transform-origin:45% 80%;
+*/
+	transform-origin:45% 95%;
+	animation: cores 10s ease infinite, fire4 .6s linear infinite forwards;
+/*
+	animation: cores 10s ease infinite, tentFire 1s steps(27) infinite forwards;
+*/
+	animation-play-state: paused, paused;
+	transition: transform .15s ease-in;
+}
+
+#meio:hover > #secaoNav:after{
+	transform: scale(1);
+	animation-play-state: paused, running;
+	transition: all .5s ease;
+}
+#secaoNav:hover:after{
+	animation-play-state: running, running!important;
+}
+/*---------- PALAVRAS -------------------------------------------------*/
+#secaoNav:hover > li{
+	animation-play-state: running;
+	background:var(--vidro_fume);
+/*
+	border-image: url(https://dl.dropboxusercontent.com/s/ttepyvaeragnbfm/padrao2.png) 20% stretch;
+*/
+	transition:all 1s ease;
+}
+#secaoNav li{
+	position:relative;
+	top:2px;
+	background:var(--vidro);
+	padding-top: 5px;
+	padding-bottom:5px;
+	padding-right:3px;
+	animation: cores 5s ease infinite;
+	animation-play-state: paused;
+	margin:0;
+	font-family:var(--font_title);
+	font-size:12px;
+	font-weight:300;
+	text-transform: lowercase;
+	font-variant:small-caps;
+	color: var(--color_main)!important; /*tive que colocar important por que o #meio li é que tava com precedência na cor das letras.*/
+	transition:all 1s ease;
+	z-index:2;
+}
+
+#secaoNav li:first-child{padding-left:5px;}
+#secaoNav li:first-child:after{
+	display:block;position:absolute;content:"";
+	right:0;left:100%;top:0;
+	width:auto;
+	height:2px;
+	border-top: 1px solid transparent;
+	border-left: 1px solid transparent;
+	opacity:0;
+	border-image: url(https://dl.dropboxusercontent.com/s/ttepyvaeragnbfm/padrao2.png) 20% stretch;
+	transition: opacity 0s ease 2s, height 1s ease, right 1s ease, left 1s ease 1s;
+}
+#secaoNav:hover > li:first-child:after{
+	opacity:1;
+	left:0;right:75%;
+	height:50%;
+	transition: left 1s ease, right 1s ease 1s, height 1s ease 1s;
+} 
+
+#secaoNav li:last-child{padding-right:15px;}
+#secaoNav li:last-child:after{
+	display:block;position:absolute;content:"";
+	left:0;right:100%;bottom:0;
+	width:auto;
+	height:2px;
+	border-bottom: 1px solid transparent;
+	border-right: 1px solid transparent;
+	opacity:0;
+	border-image: url(https://dl.dropboxusercontent.com/s/ttepyvaeragnbfm/padrao2.png) 20% stretch;
+	transition: opacity 0s ease 2s, height 1s ease, left 1s ease, right 1s ease 1s;
+}
+#secaoNav:hover > li:last-child:after{
+	opacity:1;
+	right:0;left:75%;
+	height:50%;
+	transition: right 1s ease, left 1s ease 1s, height 1s ease 1s;
+}
+#secaoNav a {/*modifica o conjunto, mas algumas coisas não.*/
+	text-decoration:none!important; /*só aqui que modifica o underline seboso de spirit e modelo*/
+	margin-right: 5px;
+}
+#secaoNav span{	/*modifica especificamente spirit e membros*/
+	margin-left:5px;
+	position:relative;
+	display:inline-block;
+	color:var(--color_main)!important;
+	font-family:var(--font_main);
+	text-transform:lowercase;
+	font-variant:small-caps;
+	font-size:12px;
+	letter-spacing:1px;
+	font-weight:300;
+/*
+	font-variant:small-caps;
+*/
+	z-index:2;
+}
